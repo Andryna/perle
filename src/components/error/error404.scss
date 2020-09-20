@@ -1,0 +1,38 @@
+.error404{
+	height: 100vh;
+	background-color: #b9b9b9;
+	.header {
+		height: 50px;
+	}
+	//div {
+	//	border: 1px solid red;
+	//}
+	.container {
+		width: 100%;
+		height: calc(100vh - 50px);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		a {
+			text-decoration: none;
+			color: #2e2c2c;
+		}
+		div {
+			width: 450px;
+			position: relative;
+			top: -100px;
+			p:nth-child(2) {
+				margin-left: 10px;
+			}
+		}
+	}
+
+	.title {
+		font-size: 100px;
+	}
+
+	.body {
+		font-style: italic;
+		opacity: 0.8;
+	}
+}

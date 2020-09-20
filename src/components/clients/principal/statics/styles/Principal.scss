@@ -1,0 +1,115 @@
+.Principal {
+    .root {
+        background: url('../images/bg3-home.jpg') top left no-repeat;
+        background-size: cover;
+        min-height: 100vh;
+        color: whitesmoke;
+        text-align: center;
+        position: relative;
+    }
+
+    .root p, .root h1 {
+        color: whitesmoke;
+    }
+
+    .site-name {
+        font-family: "lobster";
+        margin-bottom: 30px;
+        padding-top: 0px;
+    }
+
+    .main-home {
+        width: fit-content;
+        margin: auto;
+    }
+
+    .message {
+        color: whitesmoke;
+    }
+
+    .message p {
+        font-weight: bold;
+    }
+
+    .montant {
+        font-size: 2em;
+        font-weight: bold;
+        display: block;
+    }
+
+    .statistics {
+        display: flex;
+        margin: auto;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .statistic {
+        margin-right: 20px;
+        margin-bottom: 30px;
+    }
+
+    .topStatistic {
+        margin-bottom: 10px;
+    }
+
+    .emphase-big {
+        display: block;
+        font-size: 2em;
+        font-weight: bold;
+    }
+
+    .boxMondeContainer {
+        display: flex;
+        margin: 30px 0;
+    }
+
+    .boxMonde {
+        border: 2px solid whitesmoke;
+        border-radius: 25px;
+        padding: 10px;
+        width: 250px;
+        height: 170px;
+        margin-right: 20px;
+    }
+
+    .boxMonde h1 {
+        font-family: lobster;
+        margin-bottom: 70px;
+    }
+
+    .boxMonde a {
+        color: whitesmoke;
+        display: block;
+        padding: 5px 15px;
+        border: 2px solid whitesmoke;
+        border-radius: 15px;
+    }
+
+    .boxMonde a:hover {
+        background: whitesmoke;
+        color: black;
+        transition: 0.5s ease;
+    }
+
+    .boxMonde ul {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .boxMonde:first-child {
+        background: url('../images/libertain.jpg') top left no-repeat;
+        background-size: cover;
+    }
+
+    .boxMonde:nth-child(2) {
+        background: url('../images/sansLendemain.jpg') top left no-repeat;
+        background-size: cover;
+    }
+
+    .boxMonde:last-child {
+        background: url('../images/love.jpg') top left no-repeat;
+        background-size: cover;
+    }
+}
