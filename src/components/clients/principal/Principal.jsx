@@ -1,6 +1,7 @@
 import React from 'react'
 import './statics/styles/Principal.scss'
 import TopHeader from './layouts/topHeader/TopHeader'
+import { Link } from 'react-router-dom'
 
 function BoxMonde (props) {
     return (
@@ -14,8 +15,8 @@ function BoxMonde (props) {
             }}>
             <h1 style={{ marginBottom: 5 }}>{ props.title }</h1>
             <ul>
-                <li><a href="/profiles">Connexion</a></li>
-                <li><a href="/profiles">Inscription</a></li>
+                <li><Link to="/Authentification=Connexion">Connexion</Link></li>
+                <li><Link to="/Authentification=Inscription">Inscription</Link></li>
             </ul>
         </div>
 

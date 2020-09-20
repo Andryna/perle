@@ -3,8 +3,15 @@ import './statics/styles/Profiles.scss'
 import TopHeader from './layouts/topHeader/TopHeader'
 import Header from './layouts/header/Header'
 import BoxProfile from './layouts/boxProfile/BoxProfile'
+import Aside from './layouts/aside/Aside'
 
 class Profiles extends Component {
+    componentDidMount () {
+        if (!localStorage.hasOwnProperty('Token')) {
+            this.props.history.push('/Authentification=Connexion')
+        }
+    }
+
     render () {
         return (
             <div className='Profiles'>
@@ -14,7 +21,7 @@ class Profiles extends Component {
                 </div>
 
                 <div className="center">
-                    <app-aside></app-aside>
+                    <Aside history={this.props.history}/>
 
                     <div className="main">
                         <div className="findBox">
@@ -27,7 +34,7 @@ class Profiles extends Component {
                             <div className="boxSort">
                                 <div className="sortMap">
                                     <label className="checkboxContainer">France
-                                        <input type="checkbox" checked="checked"/>
+                                        <input type="checkbox" checked={true}/>
                                         <span className="checkmark"></span>
                                     </label>
                                 </div>

@@ -7,13 +7,13 @@ function TopHeader () {
     return (
         <div className='TopHeader'>
             <div className="topHeader">
-                <div class="logo">
+                <div className="logo">
                     <p><img src={logoLight} alt='logoLight'/></p>
                     <h1>PERLE RENCONTRE</h1>
                 </div>
                 <nav className="rightNav">
                     <ul>
-                        <li style={{ cursor: 'pointer' }} onClik={() => console.log('click menu')}><img src={menu} alt='menu'/></li>
+                        <li style={{ cursor: 'pointer' }} onClick={() => console.log('click menu')}><img src={menu} alt='menu'/></li>
                         <li style={{ cursor: 'pointer' }}><img src={iconeInfo} alt='iconInfo'/></li>
                     </ul>
                 </nav>
