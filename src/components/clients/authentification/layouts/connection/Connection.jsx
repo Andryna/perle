@@ -1,6 +1,27 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import {
+    TextField,
+    Input,
+    IconButton,
+    InputAdornment
+} from '@material-ui/core'
+import {
+    createMuiTheme,
+    ThemeProvider
+} from '@material-ui/core/styles'
+
+import {
+    Visibility,
+    VisibilityOff
+} from '@material-ui/icons'
+
+const theme = createMuiTheme({
+    palette: {
+        type: 'dark'
+    }
+})
 
 class Connexion extends Component {
     constructor (props) {
@@ -9,7 +30,8 @@ class Connexion extends Component {
             email: '',
             password: '',
             error: false,
-            isLoading: false
+            isLoading: false,
+            isShow: false
         }
     }
 
@@ -44,74 +66,94 @@ class Connexion extends Component {
     render () {
         const {
             error,
-            isLoading
+            isLoading,
+            email,
+            password,
+            isShow
         } = this.state
         return (
             <div className='Connection'>
-                <div className="parent-space-between">
-                    <p><Link className="backward-round" to='/'>Revenir</Link></p>
-                </div>
+                <ThemeProvider theme={theme}>
+                    <div className="parent-space-between">
+                        <p><Link className="backward-round" to='/'>Revenir</Link></p>
+                    </div>
 
-                <h1 className="whiteSpecialTitle">Rencontre love</h1>
+                    <h1 className="whiteSpecialTitle">Rencontre love</h1>
 
-                <div className="boxRounded dark-shadow">
-                    <h2 className="whiteSecondTitle centeredText">Connexion</h2>
+                    <div className="boxRounded dark-shadow">
+                        <h2 className="whiteSecondTitle centeredText">Connexion</h2>
+                        <form className="margin-tb-20" >
+                            <ul className="standar-vertic-spacing standar-bottom-spacing">
+                                <li>
+                                    <TextField
+                                        id="standard-basic"
+                                        label="Email"
+                                        value={email}
+                                        error={error}
+                                        onChange={this.onChangeInput.bind(this)}
+                                        className="max-width input-transparent"
+                                        name='email'
+                                    />
+                                </li>
+                                <li style={{ marginTop: 30 }}>
+                                    <Input
+                                        placeholder="Password"
+                                        type={isShow ? 'text' : 'password'}
+                                        value={password}
+                                        error={error}
+                                        className="max-width"
+                                        onChange={this.onChangeInput.bind(this)}
+                                        name='password'
+                                        endAdornment={
+                                            <InputAdornment position="end">
+                                                <IconButton
+                                                    aria-label="toggle password visibility"
+                                                    onClick={() => this.setState({ isShow: !isShow })}
+                                                    onMouseDown={(e) => e.preventDefault()}
+                                                >
+                                                    {isShow ? <Visibility /> : <VisibilityOff />}
+                                                </IconButton>
+                                            </InputAdornment>
+                                        }
+                                    />
+                                </li>
+                                { error ? <li style={{ color: 'red' }}>E-mail ou mot de passe incorrect</li> : null }
+                            </ul>
 
-                    <form className="margin-tb-20" >
-                        <ul className="standar-vertic-spacing standar-bottom-spacing">
-                            { error ? <li>Mot de passe oublié</li> : null }
-                            <li>
-                                <input
-                                    className="max-width input-transparent"
-                                    type="text"
-                                    placeholder="email"
-                                    name='email'
-                                    onChange={this.onChangeInput.bind(this)}
-                                />
-                            </li>
-                            <li>
-                                <input
-                                    className="max-width input-transparent"
-                                    type="password" placeholder="password"
-                                    name='password'
-                                    onChange={this.onChangeInput.bind(this)}
-                                />
-                            </li>
-                        </ul>
-
-                        <ul className="standar-vertic-spacing">
-                            <li>
-                                <input
-                                    style={{ cursor: 'pointer' }}
-                                    className="max-width btn button-light-blue"
-                                    type="button"
-                                    value={ isLoading ? 'Loading...' : 'Connexion' }
-                                    onClick={this.onSubmit.bind(this)}
-                                />
-                            </li>
-                            <li>
-                                <Link to="/Authentification=Inscription">
+                            <ul className="standar-vertic-spacing">
+                                <li>
                                     <input
                                         style={{ cursor: 'pointer' }}
-                                        className="max-width btn btn-light-border-only"
+                                        className="max-width btn button-light-blue"
                                         type="button"
-                                        value="Inscription"
+                                        value={ isLoading ? 'Loading...' : 'Connexion' }
+                                        onClick={this.onSubmit.bind(this)}
                                     />
-                                </Link>
-                            </li>
-                        </ul>
-                    </form>
-
-                    <div>
-                        <li className="centeredText small-padding ">Ou se connecter avec</li>
-                        <li>
-                            <ul className="inline">
-                                <li><input className="btn btn-social-network btn-facebook" type="button" value="Facebook" /></li>
-                                <li><input className="btn btn-social-network btn-google" type="button" value="Google" /></li>
+                                </li>
+                                <li>
+                                    <Link to="/Authentification=Inscription">
+                                        <input
+                                            style={{ cursor: 'pointer' }}
+                                            className="max-width btn btn-light-border-only"
+                                            type="button"
+                                            value="Inscription"
+                                        />
+                                    </Link>
+                                </li>
                             </ul>
-                        </li>
+                        </form>
+
+                        <div>
+                            <li className="centeredText small-padding ">Ou se connecter avec</li>
+                            <li>
+                                <ul className="inline">
+                                    <li><input className="btn btn-social-network btn-facebook" type="button" value="Facebook" /></li>
+                                    <li><input className="btn btn-social-network btn-google" type="button" value="Google" /></li>
+                                </ul>
+                            </li>
+                        </div>
                     </div>
-                </div>
+                </ThemeProvider>
             </div>
         )
     }

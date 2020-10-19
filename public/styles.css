@@ -16,6 +16,13 @@ input {
 }
 
 /* ****************
+ *  Material ui 
+ * ****************/
+.MuiFormControl-root-87 {
+    width: 100%;
+}
+
+/* ****************
  * configurations
  * ****************/
 
@@ -346,6 +353,7 @@ select, select:focus, select:active  {
 /* rouned box with standar padding */
 
 .boxRounded {
+   position: relative;
    border-radius: 25px;
    display: block;
    padding: 20px;
@@ -458,6 +466,7 @@ header {
 .boxProfileActif {
     display: flex;
     padding-bottom: 15px;
+    align-items: center;
 }
 
 .boxProfileActif img {
@@ -487,6 +496,9 @@ header {
     display: flex;
     padding: 20px;
     position: relative;
+}
+.centered {
+    align-self: center;
 }
 
 
@@ -658,3 +670,9 @@ header {
 }
 
 
+
+.asidecontainer{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 15px;
+}

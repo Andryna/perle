@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Connexion from './layouts/connection/Connection'
 import Inscription from './layouts/inscription/Inscription'
+import Parlezvous from './layouts/parlezvous/Parlezvous'
 import './statics/styles/Authentification.scss'
 
 class Authentification extends Component {
@@ -13,6 +14,9 @@ class Authentification extends Component {
 
     componentDidMount () {
         this.setState({ isLogin: this.props.match.params.type })
+        if (Object.prototype.hasOwnProperty.call(localStorage, 'Token')) {
+            this.props.history.push('/Profiles')
+        }
     }
 
     componentDidUpdate (prevProps, prevState) {
@@ -29,9 +33,13 @@ class Authentification extends Component {
                 <div className="dark max-size standar-padding lightText">
                     <div className="centeredBox centeredText">
                         {
-                            isLogin === 'Connexion'
-                                ? <Connexion history={ history }/>
-                                : <Inscription history={ history }/>
+                            isLogin === 'Connexion' && <Connexion history={ history }/>
+                        }
+                        {
+                            isLogin === 'Inscription' && <Inscription history={ history }/>
+                        }
+                        {
+                            isLogin === 'Parlezvous' && <Parlezvous history={ history }/>
                         }
                     </div>
                 </div>
