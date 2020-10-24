@@ -67,8 +67,12 @@ class Connexion extends Component {
                 })
                 .then(async ({ data: { token } }) => {
                     this.setState({ isLoading: false })
-                    await localStorage.setItem('Token', JSON.stringify(token))
-                    this.props.history.push('/Profiles')
+                    if (token) {
+                        await localStorage.setItem('Token', JSON.stringify(token))
+                        this.props.history.push('/Profiles')
+                    } else {
+                        this.setState({ error: true })
+                    }
                 })
                 .catch(e => {
                     this.setState({ isLoading: false, error: true })
