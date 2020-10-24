@@ -3,7 +3,7 @@ import './statics/styles/Principal.scss'
 import TopHeader from './layouts/topHeader/TopHeader'
 import { Link } from 'react-router-dom'
 
-function BoxMonde (props) {
+function BoxMonde ({ id, title }) {
     return (
         <div
             className="boxMonde"
@@ -13,10 +13,10 @@ function BoxMonde (props) {
                 justifyContent: 'flex-end',
                 paddingBottom: 20
             }}>
-            <h1 style={{ marginBottom: 5 }}>{ props.title }</h1>
+            <h1 style={{ marginBottom: 5 }}>{ title }</h1>
             <ul>
-                <li><Link to="/Authentification=Connexion">Connexion</Link></li>
-                <li><Link to="/Authentification=Inscription">Inscription</Link></li>
+                <li><Link to={'/Authentification=Connexion?id=' + id}>Connexion</Link></li>
+                <li><Link to={'/Authentification=Inscription?id=' + id}>Inscription</Link></li>
             </ul>
         </div>
 
@@ -39,9 +39,9 @@ function Principal () {
                     </div>
 
                     <div className="boxMondeContainer">
-                        <BoxMonde title='Libertin'/>
-                        <BoxMonde title='Sans lendemain'/>
-                        <BoxMonde title='Love'/>
+                        <BoxMonde title='Libertin' id={3}/>
+                        <BoxMonde title='Sans lendemain' id={2}/>
+                        <BoxMonde title='Love' id={1}/>
                     </div>
 
                     <div className="topStatistic">

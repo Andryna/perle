@@ -1,158 +1,83 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 import {
-    TextField,
     FormLabel,
     FormControl,
     FormGroup,
     FormControlLabel,
     Checkbox,
     IconButton,
-    MenuItem,
-    Select
+    Button
 } from '@material-ui/core'
 import {
-    createMuiTheme,
     ThemeProvider
 } from '@material-ui/core/styles'
 
 import {
-    LocationOn,
     ArrowBack
 } from '@material-ui/icons'
 
-const theme = createMuiTheme({
-    palette: {
-        type: 'dark',
-        secondary: {
-            main: '#d3d3d3'
-        }
-    },
-    typography: {
-        button: {
-            textTransform: 'none'
-        }
-    }
-})
+import { connect } from 'react-redux'
 
 class Parlezvous extends Component {
     constructor (props) {
         super(props)
         this.state = {
-            error: false,
+            isReq: false,
             isLoading: false,
-            Homme: false,
-            Femme: false,
-            Gays: false,
-            Lesbiennes: false,
-            Hommebi: false,
-            Femmebi: false,
             location: '',
             first: true
         }
+        this.check = ['Homme', 'Femme', 'Gays', 'Lesbiennes', 'Hommebi', 'Femmebi']
     }
 
     onSubmit (e) {
         e.preventDefault()
         const {
-            email,
-            password,
-            first
-        } = this.state
-        if (first) {
-            if (email !== '' && password !== '') {
-                this.setState({ isLoading: true })
-                axios
-                    .post('/api/login', {
-                        email,
-                        password
-                    })
-                    .then(async ({ data: { token } }) => {
-                        this.setState({ isLoading: false })
-                        this.setState({ first: false })
-                    })
-                    .catch(e => {
-                        this.setState({ isLoading: false, error: true })
-                    })
-            // 
-            console.log(email)
-            }
-            console.log(first)
+            sexe,
+            search
+        } = this.props.inscription.datas
+        this.setState({ isReq: false })
+        if (sexe !== '' && search.length > 0) {
+            this.props.history.push('/Authentification=Suites')
         } else {
-            if (email !== '' && password !== '') {
-                this.setState({ isLoading: true })
-                axios
-                    .post('/api/login', {
-                        email,
-                        password
-                    })
-                    .then(async ({ data: { token } }) => {
-                        this.setState({ isLoading: false })
-                        await localStorage.setItem('Token', JSON.stringify(token))
-                        this.props.history.push('/Profiles')
-                    })
-                    .catch(e => {
-                        this.setState({ isLoading: false, error: true })
-                    })
-            }
-            console.log(first+ 'auther log ')
+            this.setState({ isReq: true })
         }
-    }
-
-    onChangeInput (e) {
-        this.setState({ [e.target.name]: e.target.value, error: false })
     }
 
     onChangeCheck (e) {
-        this.setState({ [e.target.name]: e.target.checked, error: false })
-        console.log( e.target.name)
-    }
-
-    initData (val) {
-        const tab = []
-        if (val === 'dd') {
-            for (let i = 1; i < 32; i++) {
-                tab.push(i)
-            }
-        } else if (val === 'mm') {
-            const mois = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
-            for (let i = 0; i < mois.length; i++) {
-                tab.push(mois[i])
-            }
-        } else {
-            const years = new Date().getFullYear()
-            for (let i = 0; i < 100; i++) {
-                tab.push(years - i)
-            }
-        }
-        return tab
+        this.setState({ [e.target.name]: e.target.checked, isReq: false }, () => {
+            const search = this.check.filter(e => {
+                return this.state[e] === true
+            })
+            this.props.putInscription({ ...this.props.inscription.datas, search })
+        })
     }
 
     setReturn () {
-        if (this.state.first) {
-            this.props.history.push('/Authentification=Inscription')
-        } else {
-            this.setState({ first: true })
-        }
+        this.props.history.push('/Authentification=MonDomicile')
+    }
+
+    onClickSexe (e) {
+        this.setState({ isReq: false })
+        this.props.putInscription({ ...this.props.inscription.datas, sexe: e })
     }
 
     render () {
         const {
-            error,
-            isLoading,
-            Homme,
-            Femme,
-            Gays,
-            Lesbiennes,
-            Hommebi,
-            Femmebi,
-            location,
-            first
+            isReq,
+            isLoading
         } = this.state
+        const {
+            sexe,
+            search
+        } = this.props.inscription.datas
+
+        const isHomme = sexe === 'Homme'
+        const isFemme = sexe === 'Femme'
         return (
             <div className='Connection'>
-                <ThemeProvider theme={theme}>
+                <ThemeProvider>
                     <div className="parent-space-between">
                         <p><Link className="backward-round" to='/'>Revenir</Link></p>
                     </div>
@@ -185,163 +110,83 @@ class Parlezvous extends Component {
                         >
                         </div>
                         <h2 className="whiteSecondTitle centeredText">
-                            { first ? 'Parlez-moi de vous' : 'derniere question sur vous' }
+                            Parlez-moi de vous
                         </h2>
-                        <form className="margin-tb-20" >
-                            { first
-                                ? <>
-                            <FormControl required error={error} component="fieldset">
+                        <p
+                            style={{
+                                fontSize: 19,
+                                textAlign: 'left',
+                                margin: '15px 0'
+                            }}
+                        >
+                            Je suis: *
+                        </p>
+                        <div
+                            className="inline"
+                            style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                flex: 1
+                            }}
+                        >
+                            <Button
+                                variant={ isHomme ? 'contained' : 'outlined'}
+                                color={ isHomme ? 'primary' : 'secondary' }
+                                style={{ borderRadius: 30, flex: 1, margin: 3 }}
+                                onClick={this.onClickSexe.bind(this, 'Homme')}
+                            >
+                                Homme
+                            </Button>
+                            <Button
+                                variant={ isFemme ? 'contained' : 'outlined'}
+                                color={ isFemme ? 'primary' : 'secondary' }
+                                style={{ borderRadius: 30, flex: 1, margin: 3 }}
+                                onClick={this.onClickSexe.bind(this, 'Femme')}
+                            >
+                                Femme
+                            </Button>
+                        </div>
+                        { isReq && <p className='error'>* Champ obligatoire</p>}
+                        <div
+                            className="margin-tb-20" >
+                            <FormControl
+                                required
+                                component="fieldset"
+                                style={{ float: 'left' }}
+                            >
                                 <FormLabel
                                     component="legend"
                                     style={{ textAlign: 'left' }}
                                 >Je cherche</FormLabel>
-                                <FormGroup>
+                                <FormGroup
+                                    style={{ height: 150 }}
+                                >
                                     <FormControlLabel
-                                        control={<Checkbox checked={Homme} onChange={this.onChangeCheck.bind(this)} name="Homme" />}
+                                        control={<Checkbox checked={search.indexOf('Homme') >= 0} onChange={this.onChangeCheck.bind(this)} name="Homme" />}
                                         label="Homme"
                                     />
                                     <FormControlLabel
-                                        control={<Checkbox checked={Femme} onChange={this.onChangeCheck.bind(this)} name="Femme" />}
-                                        label="Femme"
-                                    />
-                                    <FormControlLabel
-                                        control={<Checkbox checked={Gays} onChange={this.onChangeCheck.bind(this)} name="Gays" />}
+                                        control={<Checkbox checked={search.indexOf('Gays') >= 0} onChange={this.onChangeCheck.bind(this)} name="Gays" />}
                                         label="Gays"
                                     />
                                     <FormControlLabel
-                                        control={<Checkbox checked={Lesbiennes} onChange={this.onChangeCheck.bind(this)} name="Lesbiennes" />}
-                                        label="Lesbiennes"
-                                    />
-                                    <FormControlLabel
-                                        control={<Checkbox checked={Hommebi} onChange={this.onChangeCheck.bind(this)} name="Hommebi" />}
+                                        control={<Checkbox checked={search.indexOf('Hommebi') >= 0} onChange={this.onChangeCheck.bind(this)} name="Hommebi" />}
                                         label="Homme bi"
                                     />
                                     <FormControlLabel
-                                        control={<Checkbox checked={Femmebi} onChange={this.onChangeCheck.bind(this)} name="Femmebi" />}
+                                        control={<Checkbox checked={search.indexOf('Femme') >= 0} onChange={this.onChangeCheck.bind(this)} name="Femme" />}
+                                        label="Femme"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox checked={search.indexOf('Lesbiennes') >= 0} onChange={this.onChangeCheck.bind(this)} name="Lesbiennes" />}
+                                        label="Lesbiennes"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox checked={search.indexOf('Femmebi') >= 0} onChange={this.onChangeCheck.bind(this)} name="Femmebi" />}
                                         label="Femme bi"
                                     />
                                 </FormGroup>
                             </FormControl>
-                            <ul
-                                className="standar-vertic-spacing standar-bottom-spacing"
-                                style={{ marginBottom: 50 }}
-                            >
-                                <li>
-                                    <TextField
-                                        id="standard-basic"
-                                        label="je vis a"
-                                        value={location}
-                                        error={error}
-                                        onChange={this.onChangeInput.bind(this)}
-                                        className="max-width input-transparent"
-                                        name='location'
-                                        helperText={<span style={{
-                                            display: 'flex',
-                                            alignItems: 'center'
-                                        }}><LocationOn style={{ fontSize: 15, marginRight: 5 }} /> Me geolocaliser</span>}
-                                    />
-                                </li>
-                            </ul>
-                            <ul className="standar-vertic-spacing">
-                                <li>
-                                    <input
-                                        style={{ cursor: 'pointer' }}
-                                        className="max-width btn button-light-blue"
-                                        type="button"
-                                        value={ isLoading ? 'Loading...' : 'Valider' }
-                                        onClick={this.onSubmit.bind(this)}
-                                    />
-                                </li>
-                            </ul></> : <>
-                                <FormControl required error={error} component="fieldset">
-                                    <FormLabel
-                                        component="legend"
-                                        style={{ textAlign: 'left' }}
-                                    >Je suis ne en</FormLabel>
-                                    <div
-                                        style={{
-                                            display: 'flex',
-                                            justifyContent: 'space-between'
-                                        }}>
-                                        <Select
-                                            labelId="demo-simple-select-label"
-                                            id="demo-simple-select"
-                                            value={18}
-                                            onChange={() => console.log('age')}
-                                        >
-                                            {
-                                                this.initData('dd').map(e => {
-                                                    return <MenuItem key={e} value={e}>{e}</MenuItem>
-                                                })
-                                            }
-                                        </Select>
-                                        <Select
-                                            style={{
-                                                flex: 1,
-                                                margin: '0 10px'
-                                            }}
-                                            labelId="demo-simple-select-label"
-                                            id="demo-simple-select"
-                                            value={'janvier'}
-                                            onChange={() => console.log('age')}
-                                        >
-                                            {
-                                                this.initData('mm').map(e => {
-                                                    return <MenuItem key={e} value={e}>{e}</MenuItem>
-                                                })
-                                            }
-                                        </Select>
-                                        <Select
-                                            labelId="demo-simple-select-label"
-                                            id="demo-simple-select"
-                                            value={2020}
-                                            onChange={() => console.log('age')}
-                                        >
-                                            {
-                                                this.initData('yy').map(e => {
-                                                    return <MenuItem key={e} value={e}>{e}</MenuItem>
-                                                })
-                                            }
-                                        </Select>
-                                    </div>
-                                </FormControl>
-                                <div style={{ marginTop: 30 }}>
-                                    <FormLabel component="legend">Mon prenom et nom de famille</FormLabel>
-                                    <ul
-                                        className="standar-vertic-spacing standar-bottom-spacing"
-                                    >
-                                        <li>
-                                            <TextField
-                                                id="standard-basic"
-                                                label="Prenom"
-                                                value={location}
-                                                error={error}
-                                                onChange={this.onChangeInput.bind(this)}
-                                                className="max-width input-transparent"
-                                                name='location'
-                                            />
-                                        </li>
-                                        <li>
-                                            <TextField
-                                                id="standard-basic"
-                                                label="Nom"
-                                                value={location}
-                                                error={error}
-                                                onChange={this.onChangeInput.bind(this)}
-                                                className="max-width input-transparent"
-                                                name='location'
-                                            />
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div style={{ margin: '20px 0' }}>
-                                    <h3 style={{ marginBottom: 10 }}>Notre politique confidentielle</h3>
-                                    <p style={{ width: 260 }}>
-                                        Votre prenom, nom de famille et adresse
-                                        mail resterons confidentiel, seul
-                                        votre pseudo sera visible par les utilisatuers.
-                                    </p>
-                                </div>
                             <ul className="standar-vertic-spacing">
                                 <li>
                                     <input
@@ -353,9 +198,11 @@ class Parlezvous extends Component {
                                     />
                                 </li>
                             </ul>
-                                    </>
-                            }
-                        </form>
+                        </div>
+                        <div>
+                            <li className="centeredText small-padding "></li>
+                            <li className="centeredText small-padding ">* Champ obligatoire</li>
+                        </div>
                     </div>
                 </ThemeProvider>
             </div>
@@ -363,4 +210,18 @@ class Parlezvous extends Component {
     }
 }
 
-export default Parlezvous
+const mapStateToProps = state => {
+    return {
+        inscription: state.inscription
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        putInscription: (datas) => {
+            dispatch({ type: 'PUT_INSCRIPTION', datas })
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Parlezvous)

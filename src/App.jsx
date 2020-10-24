@@ -1,7 +1,6 @@
 import React from 'react'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import { indigo, pink } from '@material-ui/core/colors'
 import axios from 'axios'
 import './App.css'
 
@@ -18,8 +17,21 @@ axios.defaults.baseURL = 'https://www.perlerencontre.fr'
 function App (props) {
     const theme = createMuiTheme({
         palette: {
-            primary: indigo,
-            secondary: pink
+            type: 'dark',
+            primary: {
+                light: '#d3ebf3',
+                main: '#56ccf2',
+                dark: '#0484ad',
+                contrastText: '#fff'
+            },
+            secondary: {
+                main: '#d3d3d3'
+            }
+        },
+        typography: {
+            button: {
+                textTransform: 'none'
+            }
         }
     })
 
