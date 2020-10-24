@@ -13,12 +13,12 @@ class Profiles extends Component {
         this.state = {
             user: {},
             search: '',
-            infouser:[],
-            info:[],
-            credit:[],
-            showUser:[],
-            monde:'',
-            listUser:[]
+            infouser: [],
+            info: [],
+            credit: [],
+            showUser: [],
+            monde: '',
+            listUser: []
         }
     }
 
@@ -32,15 +32,16 @@ class Profiles extends Component {
         })
             .then(({ data }) => {
                 console.log('response: ', data)
-                
-                this.setState({infouser:data.User,
-                               info:data.Information,
-                               credit:data.Credit,
-                               showUser:data.UtilisateurAfficher,
-                               monde:data.Monde,
-                               listUser:data.UtilisateurAfficher,
 
-                            })
+                this.setState({
+                    infouser: data.User,
+                    info: data.Information,
+                    credit: data.Credit,
+                    showUser: data.UtilisateurAfficher,
+                    monde: data.Monde,
+                    listUser: data.UtilisateurAfficher
+
+                })
                 // console.log('decode: ', this.state.infouser.User)
                 var decoded = jwtdecode(data)
             })
@@ -73,47 +74,47 @@ class Profiles extends Component {
 
                 <div className="center">
                     <Aside
-                        datas={{ 
-                            //user
-                        name: infouser.name,
-                        imageUser:infouser.profil_image,
-                        audio:infouser.profil_audio,
-                        video:infouser.profil_videos,
-                        //INformation
-                        age:info.age,
-                        couleur_cheveux:info.couleur_cheveux,
-                        couleur_yeux:info.couleur_yeux,
-                        created_at:info.created_at,
-                        degaine:info.degaine,
-                        departement:info.departement,
-                        etudes:info.etudes,
-                        faiblesse:info.faiblesse,
-                        hobbies:info.hobbies,
-                        id:info.id,
-                        longeur_cheveux:info.longeur_cheveux,
-                        music:info.music,
-                        nombres_enfant:info.nombres_enfant,
-                        origine:info.origine,
-                        pays:info.pays,
-                        personnalite:info.personnalite,
-                        poids:info.poids,
-                        profession:info.profession,
-                        region:info.region,
-                        religion:info.religion,
-                        sexualite:info.sexualite,
-                        signe_aestrologique:info.signe_aestrologique,
-                        silouchette:info.silouchette,
-                        sport:info.sport,
-                        style_cheveux:info.style_cheveux,
-                        style_de_vie:info.style_de_vie,
-                        taille:info.taille,
-                        updated_at:info.updated_at,
-                        user_id:info.user_id,
-                        ville:info.ville,
-                        perle:credit.perle,
-                        bourse:credit.bourse,
-                     }}
-                     datalist={listUser}
+                        datas={{
+                            // user
+                            name: infouser.name,
+                            imageUser: infouser.profil_image,
+                            audio: infouser.profil_audio,
+                            video: infouser.profil_videos,
+                            // INformation
+                            age: info.age,
+                            couleur_cheveux: info.couleur_cheveux,
+                            couleur_yeux: info.couleur_yeux,
+                            created_at: info.created_at,
+                            degaine: info.degaine,
+                            departement: info.departement,
+                            etudes: info.etudes,
+                            faiblesse: info.faiblesse,
+                            hobbies: info.hobbies,
+                            id: info.id,
+                            longeur_cheveux: info.longeur_cheveux,
+                            music: info.music,
+                            nombres_enfant: info.nombres_enfant,
+                            origine: info.origine,
+                            pays: info.pays,
+                            personnalite: info.personnalite,
+                            poids: info.poids,
+                            profession: info.profession,
+                            region: info.region,
+                            religion: info.religion,
+                            sexualite: info.sexualite,
+                            signe_aestrologique: info.signe_aestrologique,
+                            silouchette: info.silouchette,
+                            sport: info.sport,
+                            style_cheveux: info.style_cheveux,
+                            style_de_vie: info.style_de_vie,
+                            taille: info.taille,
+                            updated_at: info.updated_at,
+                            user_id: info.user_id,
+                            ville: info.ville,
+                            perle: credit.perle,
+                            bourse: credit.bourse
+                        }}
+                        datalist={listUser}
                         history={this.props.history}
                     />
 
@@ -130,7 +131,7 @@ class Profiles extends Component {
                             </form>
                         </div>
 
-                     <div className="mainBoxSort">
+                        <div className="mainBoxSort">
                             <div className="boxSort">
                                 <div className="sortMap">
                                     <label className="checkboxContainer">France
@@ -139,7 +140,7 @@ class Profiles extends Component {
                                     </label>
                                 </div>
                                 <div>
-                                 <p>{infouser.User}</p> 
+                                    <p>{infouser.User}</p>
 
                                 </div>
                                 <div className="sortMap">
