@@ -36,7 +36,7 @@ class Connexion extends Component {
     constructor (props) {
         super(props)
         this.state = {
-            name: '',
+            email: '',
             password: '',
             error: false,
             isLoading: false,
@@ -55,14 +55,14 @@ class Connexion extends Component {
     onSubmit (e) {
         e.preventDefault()
         const {
-            name,
+            email,
             password
         } = this.state
         this.setState({ isLoading: true, isOblige: false, error: false })
-        if (name !== '' && password !== '') {
+        if (email !== '' && password !== '') {
             axios
                 .post('/api/login', {
-                    name,
+                    email,
                     password
                 })
                 .then(async ({ data: { token } }) => {
@@ -90,7 +90,7 @@ class Connexion extends Component {
         const {
             error,
             isLoading,
-            name,
+            email,
             password,
             isShow,
             isOblige
@@ -143,12 +143,12 @@ class Connexion extends Component {
                                     </Grid>
                                     <Grid item>
                                         <TextField
-                                            label="Pseudo *"
-                                            value={name}
+                                            label="Email *"
+                                            value={email}
                                             error={isOblige || error}
                                             onChange={this.onChangeInput.bind(this)}
                                             // className="max-width"
-                                            name='name'
+                                            name='email'
                                             style={{ width: 215 }}
                                         />
                                     </Grid>
