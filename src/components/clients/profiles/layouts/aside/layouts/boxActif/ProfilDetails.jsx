@@ -21,6 +21,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import SmsOutlinedIcon from '@material-ui/icons/SmsOutlined';
 
+
 // const ProfilDetails =(props)=> {
     class ProfilDetails extends React.Component {
     // const {details} = props

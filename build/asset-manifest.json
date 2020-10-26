@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "./static/css/main.20d14634.chunk.css",
+    "main.js": "./static/js/main.eaf403d8.chunk.js",
+    "main.js.map": "./static/js/main.eaf403d8.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.3882a19a.js",
+    "runtime-main.js.map": "./static/js/runtime-main.3882a19a.js.map",
+    "static/js/2.d05e03c5.chunk.js": "./static/js/2.d05e03c5.chunk.js",
+    "static/js/2.d05e03c5.chunk.js.map": "./static/js/2.d05e03c5.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.3134ac4d5299aad868d63c18eb6aab47.js": "./precache-manifest.3134ac4d5299aad868d63c18eb6aab47.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.20d14634.chunk.css.map": "./static/css/main.20d14634.chunk.css.map",
+    "static/media/Principal.scss": "./static/media/sansLendemain.65f898cc.jpg",
+    "static/media/carte.png": "./static/media/carte.7386969c.png",
+    "static/media/Profiles.scss": "./static/media/headerBg.b7a2cced.png",
+    "static/media/profdet.scss": "./static/media/photoDeProfile.4b42349d.png",
+    "static/media/profil.png": "./static/media/profil.a48897c7.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3882a19a.js",
+    "static/js/2.d05e03c5.chunk.js",
+    "static/css/main.20d14634.chunk.css",
+    "static/js/main.eaf403d8.chunk.js"
+  ]
+}

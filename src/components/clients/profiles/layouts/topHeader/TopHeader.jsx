@@ -3,13 +3,22 @@ import logoLight from './statics/images/logoLight.png'
 import menu from './statics/images/menu.png'
 import iconeInfo from './statics/images/iconeInfo.png'
 
-function TopHeader () {
+class TopHeader extends React.Component{
+    constructor (props) {
+        super(props)
+       
+    }
+    render () {
     return (
         <div className='TopHeader'>
             <div className="topHeader">
                 <div className="logo">
                     <p><img src={logoLight} alt='logoLight'/></p>
                     <h1>PERLE RENCONTRE</h1>
+                </div>
+                <div>
+                    <h1 className="mondeName">{this.props.monde? this.props.monde:null
+                    }</h1>
                 </div>
                 <nav className="rightNav">
                     <ul>
@@ -19,7 +28,10 @@ function TopHeader () {
                 </nav>
             </div>
         </div>
-    )
+        )
+
+    }
+
 }
 
 export default TopHeader

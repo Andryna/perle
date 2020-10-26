@@ -16,8 +16,8 @@
     // margin-left: 100px;
 }
 .profilphoto{
-    width: 80px;
-    height: 80px;
+    width: 180px;
+    height: 180px;
 }
 .profilvideo{
     width: 80px;
@@ -288,9 +288,10 @@ font-size: 12px;
     margin-top:10px;
 }
 .profilactf{
-    width: 50px;
-    height: 50px;
-    // border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin-left: 6px;
 }
 .profilnameactif{
 font-family: Open Sans;
@@ -299,7 +300,11 @@ font-weight: bold;
 font-size: 14px;
 // line-height: 19px;
 }
-
+.BoxActif{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 // .MuiSwitch-track{
 //     background-color: #41f500!important;

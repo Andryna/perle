@@ -1,6 +1,53 @@
 .Profiles {
+    background: linear-gradient(rgb(184, 181, 181),rgb(187, 178, 178),rgb(197, 194, 194),rgb(233, 230, 230));
     .header-profiles {
-        background: url("../images/headerBg.png") top left no-repeat;
+        background:  linear-gradient(to top,rgba(160, 158, 158, 0.986), hsla(320, 2%, 72%, 0.075)),
+        url('../images/headerBg.png');
         background-size: cover;
+        margin-left: auto;
+        margin-right: auto;
     }
+}
+.slideshow{
+    // padding-bottom: 200px;
+    // margin-left: 120px;
+    margin-right: auto;
+  
+}
+.slidecontent{
+    margin-left: auto;
+    margin-right: auto;
+}
+.more{
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    top:-250px;
+    // background-color: hotpink;
+    margin: auto;
+    display:flex;
+    align-items: center;
+    // padding-bottom: 50px;
+}
+.searchLabel{
+    color: ivory;
+    font-weight: bold;
+}
+
+.floatbutton{
+    position: fixed;
+    top:90%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color:white;
+    border-radius: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    justify-content:space-around;
+
+}
+
+.floatcomponent{
+    padding-right: 20px;
 }
