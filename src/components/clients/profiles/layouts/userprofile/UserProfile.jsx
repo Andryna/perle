@@ -35,7 +35,7 @@ class UserProfile extends React.Component {
 
                 <div className="head">
                         <div className="topimage">
-                            <div className="testclic">
+                            <div>
                                     <img src={BackArrow} alt='profil' className="arrow" onClick={this.clickMe}/>
                             </div>
                         <div>
@@ -140,22 +140,14 @@ class UserProfile extends React.Component {
 
                                                     </div>
                                                     
-                                                    <div className="score">
-                                                          <div>
-                                                                      
-                                                          </div>
-                                                          <div>
-                                                                 
-                                                          </div>
-                                                </div>
                                                       
                                                  </div>
                                                  
 
 
                                                  <div>
-                                                 <div className="trait2">
-                                                 </div>
+                                                 {/* <div className="trait2">
+                                                 </div> */}
                                                      <p className="profileTitle">Dernière connexion:</p>
                                                      <p className="heur">Mardi 20 septembre 2020</p>
                                                      <p className="desc">à 14h30</p>

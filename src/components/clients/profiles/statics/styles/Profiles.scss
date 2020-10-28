@@ -45,9 +45,28 @@
     padding-left: 15px;
     padding-right: 15px;
     justify-content:space-around;
+    display:flex;
 
 }
 
 .floatcomponent{
     padding-right: 20px;
+    display: flex;
+}
+.openprofile{
+    width:56px;
+    height: 56px;
+    border-radius: 50px;
+    border-right-width: 4px;
+}
+.opencontainer{
+    // background-color: blue;
+    width: 80px;
+    margin-right: 20px;
+    border-right-color: black;
+    border-right-width: medium;
+}
+.iconbutton{
+    border-left-width: thick;
+    border-left-color: chartreuse;
 }

@@ -14,6 +14,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import ForumRoundedIcon from '@material-ui/icons/ForumRounded';
 import NotificationsRoundedIcon from '@material-ui/icons/NotificationsRounded';
+import photoDeProfile from './statics/images/photoDeProfile.png'
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 import { Divider } from '@material-ui/core'
@@ -136,7 +137,10 @@ class Profiles extends Component {
 
                 
                 <div className="center">
-                    <Aside
+                    <div>
+
+                    </div>
+                    {/* <Aside
                         datas={{ 
                             //user
                         name: infouser.name,
@@ -180,7 +184,7 @@ class Profiles extends Component {
                      opendetails={this.openProfil}
                      datalist={listUser}
                         history={this.props.history}
-                    />
+                    /> */}
                      
                     <div className="main">
                         <div className="findBox">
@@ -334,21 +338,26 @@ class Profiles extends Component {
           </div>}
         
                 <div className="floatbutton">
-                    <Fab color="primary" aria-label="add" >
-                        <AddIcon className="floatcomponent"/>
-                    </Fab>
-                    <Fab color="secondary" aria-label="edit">
-                        <MenuIcon />
-                    </Fab>                   
-                    <Fab disabled aria-label="like">
-                        <ForumRoundedIcon />
-                    </Fab>
-                    <Fab color="primary" aria-label="add">
-                        <NotificationsRoundedIcon />
-                    </Fab>
-                    <Fab color="primary" aria-label="add">
-                        <AddIcon />
-                    </Fab>
+                            <div className="opencontainer">
+                                     <img src={photoDeProfile} alt='profil' className="openprofile" onClick={this.openProfil}/>
+                            </div>
+                        <div className="iconbutton">
+                                    <Fab color="secondary" aria-label="edit">
+                                                <HomeIcon  onClick={this.handleClick}/>
+                                    </Fab> 
+                                    <Fab color="secondary" aria-label="edit">
+                                                <MenuIcon />
+                                    </Fab>                   
+                                    <Fab disabled aria-label="like">
+                                                 <ForumRoundedIcon />
+                                    </Fab>
+                                    <Fab color="primary" aria-label="add">
+                                                  <NotificationsRoundedIcon />
+                                    </Fab>
+                                    <Fab color="primary" aria-label="add">
+                                                  <AddIcon />
+                                    </Fab>
+                            </div>
                 </div>
          
             </div>

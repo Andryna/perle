@@ -93,7 +93,7 @@ padding-top: 20px;
     font-family: Open Sans;
     font-style: normal;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 22px;
     line-height: 25px;
     text-align: center;
     color: #080808;
@@ -104,25 +104,24 @@ padding-top: 20px;
     font-family: Open Sans;
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 25px;
     text-align: center;
     color: #0a0a0a;
-    line-height: 14px;
 }
 .desc{
  
     font-family: Open Sans;
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 25px;
     text-align: center;
     margin-right: 18px;
     margin-left: 18px;
     color: #0a0909;
     margin-bottom: 10px;
-    line-height: 14px;
+   
 
 }
 .heur{
@@ -156,8 +155,9 @@ padding-top: 20px;
 
 }
 .arrow{
-    width: 20px;
-    height: 18px;
+    width: 50px;
+    height: 50px;
+    align-self: auto;
 }
 // .testclic{
 //     background:green;
@@ -215,35 +215,38 @@ font-size: 12px;
     margin-top: 30px;
 }
 .carte{
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 300px;
 }
 .carte2{
     width: 10px;
     height: 25px;
-    margin-top: 80px;
+    margin-top: 250px;
 }
 .lady{
-    width: 50px;
-    height: 120px;
+    width: 150px;
+    height: 320px;
  
 }
 .lady2{
-    width: 80px;
-    height: 120px;
+    width: 150px;
+    height: 320px;
  
 }
 .trait{
     border-top:2px solid rgb(224, 218, 218);
-    width: 200px;
+    width: 600px;
     margin-left: auto;
     margin-right: auto;
+    margin-top:80px;
 }
 .trait2{
     border-top:2px solid rgb(224, 218, 218);
-    width: 150px;
+    width: 400px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .notification{
     font-family: Open Sans;
@@ -261,9 +264,9 @@ font-size: 12px;
     font-family: lobster;
     font-style: normal;
     font-weight: 100;
-    font-size: 18px;
+    font-size: 22px;
     // line-height: 25px;
-    text-align: center;
+    text-align: left;
     // margin-right: 18px;
     // margin-left: 18px;
     color: #0a0909;
@@ -285,13 +288,13 @@ font-size: 12px;
     font-family: Open Sans;
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 25px;
     text-align: left;
     margin-right: 18px;
     margin-left: 18px;
     color: #0a0909;
-    line-height: 14px;
+   
 
 }
 .decale{
