@@ -9,10 +9,9 @@
     }
 }
 .slideshow{
-    // padding-bottom: 200px;
-    // margin-left: 120px;
-    margin-right: auto;
-  
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .slidecontent{
     margin-left: auto;
@@ -27,6 +26,7 @@
     margin: auto;
     display:flex;
     align-items: center;
+    cursor: pointer;
     // padding-bottom: 50px;
 }
 .searchLabel{

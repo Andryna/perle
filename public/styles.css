@@ -540,9 +540,8 @@ header {
 /* main */
 .main {
     /* position: relative; */
-    
     margin: auto;
-    flex-grow: 2;
+    /* flex-grow: 2; */
     /* background-color:white; */
 }
 
