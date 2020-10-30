@@ -1,3 +1,8 @@
 .Authentification {
-
+    & > div {
+        background-image: url(../images/bg_auth.jpg);
+    }
+    .semiOpacity {
+        background-color: #333436ad;
+    }
 }

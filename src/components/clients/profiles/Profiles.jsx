@@ -122,7 +122,7 @@ class Profiles extends Component {
                             />
                             {/* <Header monde={monde}/> */}
 
-                            <div className='slideshow'>
+                            <div className='slideshow' style={{ position: 'relative', top: -250 }}>
                                 <div className='slidecontent' >
                                     <BoxActif
                                         listUser={listUser}
