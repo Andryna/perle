@@ -30,7 +30,6 @@ function Principal () {
                 <TopHeader/>
 
                 <div className="main-home">
-                    <h1 className="site-name">Perle rencontre</h1>
 
                     <div className="message">
                         <p>1 seul abonnement...</p>

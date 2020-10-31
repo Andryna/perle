@@ -66,7 +66,7 @@ class MonDomicile extends Component {
     }
 
     setReturn() {
-        this.props.history.push('/Authentification=Inscription')
+        this.props.history.goBack()
     }
 
     render() {

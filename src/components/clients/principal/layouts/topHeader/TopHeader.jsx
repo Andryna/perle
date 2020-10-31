@@ -11,10 +11,11 @@ function TopHeader () {
                     <p><img src={logoLight} alt='logoLight'/></p>
                     <h1>PERLE RENCONTRE</h1>
                 </div>
+                <h1 className="site-name">Perle rencontre</h1>
                 <nav className="rightNav">
-                    <ul>
+                    <ul className="display-align">
+                        <li><img src={iconeInfo} alt='iconInfo'/></li> {' '}
                         <li><img src={menu} alt='menu'/></li>
-                        <li><img src={iconeInfo} alt='iconInfo'/></li>
                     </ul>
                 </nav>
             </div>

@@ -12,10 +12,28 @@
         color: whitesmoke;
     }
 
+    .display-align {
+        display: flex;
+        justify-content: center;
+        li {
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+    }
+
+    .topHeader {
+        height: 100px;
+        display: flex;
+        align-items: center;
+    }
+
     .site-name {
         font-family: "lobster";
-        margin-bottom: 30px;
-        padding-top: 0px;
+        font-size: 50px;
+        font-weight: normal;
+        margin-right: 200px;
     }
 
     .main-home {
@@ -63,6 +81,7 @@
     .boxMondeContainer {
         display: flex;
         margin: 30px 0;
+        height: auto;
     }
 
     .boxMonde {
@@ -111,5 +130,9 @@
     .boxMonde:last-child {
         background: url('../images/love.jpg') top left no-repeat;
         background-size: cover;
+    }
+
+    li a {
+        text-decoration:none;
     }
 }

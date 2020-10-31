@@ -26,7 +26,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite'
 import NavigationIcon from '@material-ui/icons/Navigation'
 
 class Profiles extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props)
         this.state = {
             user: {},
@@ -42,7 +42,7 @@ class Profiles extends Component {
         }
     }
 
-    componentDidMount() {
+    componentDidMount () {
         const Authorization = 'Bearer ' + JSON.parse(localStorage.getItem('Token'))
         axios.get('/api/profil', {
             headers: {
@@ -63,7 +63,6 @@ class Profiles extends Component {
 
                 })
                 // console.log('decode: ', this.state.infouser.User)
-                var decoded = jwtdecode(data)
             })
             .catch(e => console.log(e))
         if (!Object.prototype.hasOwnProperty.call(localStorage, 'Token')) {
@@ -71,7 +70,7 @@ class Profiles extends Component {
         }
     }
 
-    OnChange(e) {
+    OnChange (e) {
         e.prevenDefault()
         this.setState({ [e.target.name]: e.target.value })
     }
@@ -94,7 +93,7 @@ class Profiles extends Component {
         this.setState({ quicksearch: !this.state.quicksearch })
     }
 
-    render() {
+    render () {
         const {
             search,
             infouser,
@@ -201,7 +200,7 @@ class Profiles extends Component {
                                     <div className="boxSort">
                                         <div className="sortMap">
                                             <label className="checkboxContainer">France
-                                                    <input type="checkbox" defaultChecked={true} />
+                                                <input type="checkbox" defaultChecked={true} />
                                                 <span className="checkmark"></span>
                                             </label>
                                         </div>
@@ -234,11 +233,11 @@ class Profiles extends Component {
                                             <option>35ans - 45ans</option>
                                         </select>
                                         <label className="checkboxContainer">Nouvelle
-                                                <input type="checkbox" defaultChecked={true} />
+                                            <input type="checkbox" defaultChecked={true} />
                                             <span className="checkmark"></span>
                                         </label>
                                         <label className="checkboxContainer">En ligne
-                                                <input type="checkbox" defaultChecked={true} />
+                                            <input type="checkbox" defaultChecked={true} />
                                             <span className="checkmark"></span>
                                         </label>
                                     </div>
@@ -327,7 +326,7 @@ class Profiles extends Component {
                         bourse: credit.bourse
                     }}
                 />
-                    </div>}
+                </div>}
 
                 <div className="floatbutton">
                     <div className="opencontainer">

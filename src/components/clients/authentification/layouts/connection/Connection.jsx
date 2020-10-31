@@ -26,6 +26,9 @@ import {
 import Facebook from './statics/images/Facebook.png'
 import Google from './statics/images/Google.png'
 
+import GoogleLogin from 'react-google-login'
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+
 const theme = createMuiTheme({
     palette: {
         type: 'dark'
@@ -33,7 +36,7 @@ const theme = createMuiTheme({
 })
 
 class Connexion extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props)
         this.state = {
             email: '',
@@ -45,14 +48,57 @@ class Connexion extends Component {
         }
     }
 
-    onClickPushInscription() {
+    onClickPushInscription () {
         const monde = this.props.history.location.search.split('=')[1]
         if (monde) {
             this.props.history.push('/Authentification=Inscription?id=' + monde)
         }
     }
 
-    onSubmit(e) {
+    async redirect (token) {
+        if (token) {
+            await localStorage.setItem('Token', JSON.stringify(token))
+            this.props.history.push('/Profiles')
+            return true
+        }
+        return false
+    }
+
+    onClickFaceboookBtn ({ userID: facebookId, name }) {
+        const mondes = parseInt(this.props.history.location.search.split('=')[1])
+        const datas = {
+            facebookId,
+            name,
+            mondes
+        }
+        if (facebookId && name) {
+            console.log(facebookId, name, facebookId && name)
+            axios.post('/api/register/facebook', datas)
+                .then(({ data }) => {
+                    console.log({ data })
+                    this.redirect(data.token) && this.setState({ error: true })
+                })
+                .catch(error => console.log({ error }))
+        }
+    }
+
+    onClickGoogleBtn ({ googleId, profileObj: { name, email } }) {
+        const mondes = parseInt(this.props.history.location.search.split('=')[1])
+        const datas = {
+            googleId,
+            email,
+            name,
+            mondes
+        }
+        axios.post('/api/register/google', datas)
+            .then(async ({ data }) => {
+                console.log(data)
+                this.redirect(data.token) && this.setState({ error: true })
+            })
+            .catch(error => console.log({ error }))
+    }
+
+    onSubmit (e) {
         e.preventDefault()
         const {
             email,
@@ -82,11 +128,11 @@ class Connexion extends Component {
         }
     }
 
-    onChangeInput(e) {
+    onChangeInput (e) {
         this.setState({ [e.target.name]: e.target.value, error: false, isOblige: false })
     }
 
-    render() {
+    render () {
         const {
             error,
             isLoading,
@@ -113,24 +159,41 @@ class Connexion extends Component {
                                 justifyContent: 'space-between'
                             }}
                         >
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                size="small"
-                                style={{ borderRadius: 30 }}
-                                startIcon={<img src={Facebook} alt='facebook' style={{ width: 20, height: 20 }} />}
-                            >
-                                Facebook
-                            </Button>
-                            <Button
-                                variant="contained"
-                                color="secondary"
-                                size="small"
-                                style={{ borderRadius: 30 }}
-                                startIcon={<img src={Google} alt='google' style={{ width: 20, height: 20 }} />}
-                            >
-                                Google
-                            </Button>
+                            <FacebookLogin
+                                render={e => (
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        size="small"
+                                        onClick={e.onClick}
+                                        style={{ borderRadius: 30 }}
+                                        startIcon={<img src={Facebook} alt='facebook' style={{ width: 20, height: 20 }} />}
+                                    >
+                                      Facebook
+                                    </Button>
+                                )}
+                                autoLoad={false}
+                                callback={this.onClickFaceboookBtn.bind(this)}
+                                appId="385906195896536"
+                            />
+                            <GoogleLogin
+                                render={e => (
+                                    <Button
+                                        variant="contained"
+                                        color="secondary"
+                                        size="small"
+                                        style={{ borderRadius: 30 }}
+                                        onClick={e.onClick}
+                                        startIcon={ <img src={Google} alt='google' style={{ width: 20, height: 20 }}/> }
+                                    >
+                                      Google
+                                    </Button>
+                                )}
+                                onSuccess={() => this.onClickGoogleBtn.bind(this)}
+                                onFailure={this.onClickGoogleBtn.bind(this)}
+                                cookiePolicy={'single_host_origin'}
+                                clientId="771939562585-noigod9r3l0ddqmh822uki4kmefqvarl.apps.googleusercontent.com"
+                            />
                         </div>
                     </ThemeProvider>
                     <h2 style={{ color: '#afb0b2', marginTop: 20 }}>- ou -</h2>
