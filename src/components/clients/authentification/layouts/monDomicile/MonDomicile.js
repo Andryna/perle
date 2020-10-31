@@ -35,7 +35,7 @@ const theme = createMuiTheme({
 })
 
 class MonDomicile extends Component {
-    constructor (props) {
+    constructor(props) {
         super(props)
         this.state = {
             error: false,
@@ -43,7 +43,7 @@ class MonDomicile extends Component {
         }
     }
 
-    onSubmit (e) {
+    onSubmit(e) {
         e.preventDefault()
         const {
             ville,
@@ -60,16 +60,16 @@ class MonDomicile extends Component {
         }
     }
 
-    onChangeInput (e) {
+    onChangeInput(e) {
         this.setState({ isReq: false })
         this.props.putInscription({ ...this.props.inscription.datas, [e.target.name]: e.target.value })
     }
 
-    setReturn () {
+    setReturn() {
         this.props.history.push('/Authentification=Inscription')
     }
 
-    render () {
+    render() {
         const {
             error,
             isLoading
@@ -88,9 +88,9 @@ class MonDomicile extends Component {
 
                 <h1 className="whiteSpecialTitle">Rencontre love</h1>
 
-                <div className="boxRounded dark-shadow">
+                <div className="boxRounded dark-shadow semiOpacity">
                     {/* eslint-disable-next-line */}
-                        <div
+                    <div
                         style={{
                             position: 'absolute',
                             top: 10,
@@ -114,7 +114,7 @@ class MonDomicile extends Component {
                     >
                     </div>
                     <h2 className="whiteSecondTitle centeredText">
-                          Mon domicile
+                        Mon domicile
                     </h2>
                     <ul className="standar-vertic-spacing">
                         <ThemeProvider theme={theme}>
@@ -123,9 +123,9 @@ class MonDomicile extends Component {
                                 color="primary"
                                 style={{ borderRadius: 30 }}
                                 startIcon={<LocationOn />}
-                                onClick={() => this.props.history.push('/Authentification=Geolocalisation') }
+                                onClick={() => this.props.history.push('/Authentification=Geolocalisation')}
                             >
-                                    Ma position GPS
+                                Ma position GPS
                             </Button>
                         </ThemeProvider>
                     </ul>
@@ -210,7 +210,7 @@ class MonDomicile extends Component {
                                     style={{ cursor: 'pointer' }}
                                     className="max-width btn button-light-blue"
                                     type="button"
-                                    value={ isLoading ? 'Loading...' : 'Valider' }
+                                    value={isLoading ? 'Loading...' : 'Valider'}
                                     onClick={this.onSubmit.bind(this)}
                                 />
                             </li>

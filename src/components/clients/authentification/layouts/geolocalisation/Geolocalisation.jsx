@@ -34,7 +34,7 @@ const theme = createMuiTheme({
 const diametre = 300
 const padding = 30
 class Geolocalisation extends Component {
-    constructor (props) {
+    constructor(props) {
         super(props)
         this.state = {
             error: false,
@@ -44,11 +44,11 @@ class Geolocalisation extends Component {
         }
     }
 
-    setReturn () {
+    setReturn() {
         this.props.history.push('/Authentification=MonDomicile')
     }
 
-    async geoloc () {
+    async geoloc() {
         this.props.putInscription({
             ...this.props.inscription.datas,
             ville: 'Fianarantsoa',
@@ -58,11 +58,11 @@ class Geolocalisation extends Component {
         })
     }
 
-    componentDidMount () {
+    componentDidMount() {
         this.actualiseSearch()
     }
 
-    actualiseSearch () {
+    actualiseSearch() {
         this.setState({ error: false, isMove: true })
         this.geoloc()
         setTimeout(() => {
@@ -70,7 +70,7 @@ class Geolocalisation extends Component {
         }, 10000)
     }
 
-    onSubmit () {
+    onSubmit() {
         const {
             ville,
             departement,
@@ -87,7 +87,7 @@ class Geolocalisation extends Component {
         }
     }
 
-    annullerSearch (e) {
+    annullerSearch(e) {
         this.props.putInscription({
             ...this.props.inscription.datas,
             ville: '',
@@ -98,7 +98,7 @@ class Geolocalisation extends Component {
         this.props.history.push('/Authentification=MonDomicile')
     }
 
-    render () {
+    render() {
         const {
             isMove,
             error
@@ -112,7 +112,7 @@ class Geolocalisation extends Component {
 
                     <h1 className="whiteSpecialTitle">Rencontre love</h1>
 
-                    <div className="boxRounded dark-shadow">
+                    <div className="boxRounded dark-shadow semiOpacity">
                         {/* eslint-disable-next-line */}
                         <div
                             style={{
@@ -138,7 +138,7 @@ class Geolocalisation extends Component {
                         >
                         </div>
                         <h2 className="whiteSecondTitle centeredText">
-                          Ma Position GPS
+                            Ma Position GPS
                         </h2>
                         <div>
                             <div
@@ -206,7 +206,7 @@ class Geolocalisation extends Component {
                                     backgroundColor: '#eb565a',
                                     color: 'white'
                                 }}
-                                onClick={this.annullerSearch.bind(this) }
+                                onClick={this.annullerSearch.bind(this)}
                             >
                                 je ne souhaite pas etre localiser
                             </Button>

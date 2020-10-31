@@ -61,7 +61,7 @@ class Inscription extends Component {
                         name,
                         email,
                         password,
-                        mondes
+                        mondes: parseInt(mondes)
                     })
                     .then(async ({ data }) => {
                         console.log(data)
@@ -71,7 +71,8 @@ class Inscription extends Component {
                             this.props.history.push('/Authentification=MonDomicile')
                         }
                     })
-                    .catch(e => {
+                    .catch(error => {
+                        console.log({ error })
                         this.setState({ isLoading: false, error: true })
                     })
             } else {
@@ -123,9 +124,9 @@ class Inscription extends Component {
 
                 <h1 className="whiteSpecialTitle">Rencontre love</h1>
 
-                <div className="boxRounded dark-shadow">
+                <div className="boxRounded dark-shadow semiOpacity">
                     {/* eslint-disable-next-line */}
-                        <div
+                    <div
                         style={{
                             position: 'absolute',
                             top: 10,
@@ -164,16 +165,16 @@ class Inscription extends Component {
                                 style={{ borderRadius: 30 }}
                                 startIcon={<img src={Facebook} alt='facebook' style={{ width: 20, height: 20 }} />}
                             >
-                                  Facebook
+                                Facebook
                             </Button>
                             <Button
                                 variant="contained"
                                 color="secondary"
                                 size="small"
                                 style={{ borderRadius: 30 }}
-                                startIcon={ <img src={Google} alt='google' style={{ width: 20, height: 20 }}/> }
+                                startIcon={<img src={Google} alt='google' style={{ width: 20, height: 20 }} />}
                             >
-                                  Google
+                                Google
                             </Button>
                         </div>
                     </ThemeProvider>
@@ -252,8 +253,8 @@ class Inscription extends Component {
                                     </Grid>
                                 </Grid>
                             </li>
-                            { isNotCopy && <p className='error'>Mot de pass differents</p> }
-                            { isReq && <p className='error'>* Champ obligatoire</p>}
+                            {isNotCopy && <p className='error'>Mot de pass differents</p>}
+                            {isReq && <p className='error'>* Champ obligatoire</p>}
                         </ul>
                         <ul className="standar-vertic-spacing">
                             <li>
@@ -261,7 +262,7 @@ class Inscription extends Component {
                                     style={{ cursor: 'pointer' }}
                                     className="max-width btn button-light-blue"
                                     type="button"
-                                    value={ isLoading ? 'Loading...' : 'Inscription' }
+                                    value={isLoading ? 'Loading...' : 'Inscription'}
                                     onClick={this.onSubmit.bind(this)}
                                 />
                             </li>

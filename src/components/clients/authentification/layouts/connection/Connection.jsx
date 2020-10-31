@@ -33,7 +33,7 @@ const theme = createMuiTheme({
 })
 
 class Connexion extends Component {
-    constructor (props) {
+    constructor(props) {
         super(props)
         this.state = {
             email: '',
@@ -45,14 +45,14 @@ class Connexion extends Component {
         }
     }
 
-    onClickPushInscription () {
+    onClickPushInscription() {
         const monde = this.props.history.location.search.split('=')[1]
         if (monde) {
             this.props.history.push('/Authentification=Inscription?id=' + monde)
         }
     }
 
-    onSubmit (e) {
+    onSubmit(e) {
         e.preventDefault()
         const {
             email,
@@ -82,11 +82,11 @@ class Connexion extends Component {
         }
     }
 
-    onChangeInput (e) {
+    onChangeInput(e) {
         this.setState({ [e.target.name]: e.target.value, error: false, isOblige: false })
     }
 
-    render () {
+    render() {
         const {
             error,
             isLoading,
@@ -103,7 +103,7 @@ class Connexion extends Component {
 
                 <h1 className="whiteSpecialTitle">Rencontre love</h1>
 
-                <div className="boxRounded dark-shadow">
+                <div className="boxRounded dark-shadow semiOpacity">
                     <h2 className="whiteSecondTitle centeredText">Connexion</h2>
                     <ThemeProvider theme={theme}>
                         <div
@@ -120,16 +120,16 @@ class Connexion extends Component {
                                 style={{ borderRadius: 30 }}
                                 startIcon={<img src={Facebook} alt='facebook' style={{ width: 20, height: 20 }} />}
                             >
-                                      Facebook
+                                Facebook
                             </Button>
                             <Button
                                 variant="contained"
                                 color="secondary"
                                 size="small"
                                 style={{ borderRadius: 30 }}
-                                startIcon={ <img src={Google} alt='google' style={{ width: 20, height: 20 }}/> }
+                                startIcon={<img src={Google} alt='google' style={{ width: 20, height: 20 }} />}
                             >
-                                      Google
+                                Google
                             </Button>
                         </div>
                     </ThemeProvider>
@@ -196,14 +196,14 @@ class Connexion extends Component {
                             }}
                         >Mot de passe oublié ?</p>
 
-                        { /* Button */ }
+                        { /* Button */}
                         <ul className="standar-vertic-spacing">
                             <li>
                                 <input
                                     style={{ cursor: 'pointer' }}
                                     className="max-width btn button-light-blue"
                                     type="button"
-                                    value={ isLoading ? 'Loading...' : 'Connexion' }
+                                    value={isLoading ? 'Loading...' : 'Connexion'}
                                     onClick={this.onSubmit.bind(this)}
                                 />
                             </li>

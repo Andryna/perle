@@ -184,9 +184,12 @@ input#one:checked ~ .check { transform: translate(-50px, 33px); }
 }
 
 .input-transparent::placeholder {
-    color: whitesmoke;
+    color: rgb(12, 11, 11);
 }
-
+::placeholder{
+    color: rgb(12, 11, 11);
+    text-align: center;
+}
 
 /* TITLES */
 
@@ -415,13 +418,14 @@ body {
 
 header {
     background-size: cover;
-    height: 500px;
+    height: 200px;
 }
 
 .topHeader {
     display: flex;
     justify-content: space-between;
     padding: 15px;
+    height: 350px;
 }
 
 .rightNav li {
@@ -445,7 +449,8 @@ header {
     color: #f5f5f5;
     font-weight: normal;
     font-size: 5em;
-	font-family: lobster;
+    font-family: lobster;
+    position: relative;
     text-align: center;
 }
 
@@ -491,14 +496,17 @@ header {
 }
 
 .boxProfileActif {
-    display: flex;
-    padding-bottom: 15px;
-    align-items: center;
+    /* display: flex; */
+    /* padding-bottom: 15px; */
+
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .boxProfileActif img {
     display: block;
     margin-right: 15px;
+
 }
 
 .pseudoProfilActif {
@@ -531,14 +539,15 @@ header {
 
 /* main */
 .main {
-    position: relative;
-    top: -200px;
+    /* position: relative; */
     margin: auto;
-    flex-grow: 2;
+    /* flex-grow: 2; */
+    /* background-color:white; */
 }
 
 .findForm {
-    padding-bottom: 50px;
+    position:relative;
+    top: -250px;
     width: fit-content;
     margin: auto;
 }
@@ -549,7 +558,8 @@ header {
     width: 250px;
     height: 35px;
     margin: auto;
-    background: url('./assets/images/icones/search.png') 95% center no-repeat, whitesmoke;
+    /* text-decoration-color: #323232; */
+    background: url('./assets/images/icones/search.png') 0% center no-repeat, rgba(245, 245, 245, 0.801);
     border: 2px solid rgba(0,0,0,0.5);
     border-radius: 50px;
     padding: 0px 20px;
@@ -558,7 +568,9 @@ header {
 
 /* main content */
 .mainContent {
-    width: fit-content
+    width: fit-content;
+    position: relative;
+    top:-90px;
 }
 
 .col {
@@ -653,8 +665,14 @@ header {
 
 
 .mainBoxSort {
-	margin-bottom: 50px;
+   position:relative;
+    top: -250px; 
+    /* bottom:0px; */
+    margin-bottom: -160px;
+    margin-left: 250px;
+    margin-right: auto;
 }
+
 
 .boxSort {
 	display: flex;

@@ -1,3 +1,48 @@
+// My Styles
+.boxProfileActif {
+    display: flex;
+}
+
+.light-shadow{
+  // filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.4));
+}
+
+.lightclick {
+    -webkit-animation: slide-out-top;
+}
+
+@-webkit-keyframes slide-out-top {
+  0% {
+      filter: none;
+  }
+  50% {
+      filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.4));
+  }
+  100% {
+      filter: none;
+  }
+}
+@keyframes slide-out-top {
+  0% {
+      filter: none;
+  }
+  50% {
+      filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.4));
+  }
+  100% {
+      filter: none;
+  }
+}
+// EndStyles
+
+.vitesseTranslate {
+    transition: transform 300ms cubic-bezier(0.455, 0.33, 0.515, 0.955)
+}
+
+.vitesseScale {
+    transition: transform 300ms 
+}
+
 .profilcontainer{
     align-items: center;
     background: linear-gradient(white,white,white,grey);
@@ -16,8 +61,8 @@
     // margin-left: 100px;
 }
 .profilphoto{
-    width: 80px;
-    height: 80px;
+    width: 180px;
+    height: 180px;
 }
 .profilvideo{
     width: 80px;
@@ -288,9 +333,10 @@ font-size: 12px;
     margin-top:10px;
 }
 .profilactf{
-    width: 50px;
-    height: 50px;
-    // border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin-left: 6px;
 }
 .profilnameactif{
 font-family: Open Sans;
@@ -299,7 +345,11 @@ font-weight: bold;
 font-size: 14px;
 // line-height: 19px;
 }
-
+.BoxActif{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 // .MuiSwitch-track{
 //     background-color: #41f500!important;

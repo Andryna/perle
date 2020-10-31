@@ -134,7 +134,7 @@ class Dernier extends Component {
 
                     <h1 className="whiteSpecialTitle">Rencontre love</h1>
 
-                    <div className="boxRounded dark-shadow">
+                    <div className="boxRounded dark-shadow semiOpacity">
                         {/* eslint-disable-next-line */}
                         <div
                             style={{

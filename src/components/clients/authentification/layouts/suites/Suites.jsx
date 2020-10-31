@@ -17,7 +17,7 @@ import {
 } from '@material-ui/icons'
 
 class Parlezvous extends Component {
-    constructor (props) {
+    constructor(props) {
         super(props)
         this.state = {
             error: false,
@@ -34,28 +34,28 @@ class Parlezvous extends Component {
         }
     }
 
-    onSubmit (e) {
+    onSubmit(e) {
         e.preventDefault()
         this.props.history.push('/Authentification=Dernier')
     }
 
-    onChangeInput (e) {
+    onChangeInput(e) {
         this.setState({ [e.target.name]: e.target.value, error: false })
     }
 
-    onChangeCheck (e) {
+    onChangeCheck(e) {
         this.setState({ [e.target.name]: e.target.checked, error: false })
     }
 
-    setReturn () {
+    setReturn() {
         this.props.history.push('/Authentification=Parlezvous')
     }
 
-    onClickSexe (e) {
+    onClickSexe(e) {
         this.setState({ sexe: e })
     }
 
-    getArrayBetween (start, fin) {
+    getArrayBetween(start, fin) {
         const stock = []
         for (let i = start + 1; i < fin; i++) {
             stock.push(i)
@@ -63,7 +63,7 @@ class Parlezvous extends Component {
         return stock
     }
 
-    render () {
+    render() {
         const {
             isLoading,
             error
@@ -81,7 +81,7 @@ class Parlezvous extends Component {
 
                     <h1 className="whiteSpecialTitle">Rencontre love</h1>
 
-                    <div className="boxRounded dark-shadow">
+                    <div className="boxRounded dark-shadow semiOpacity">
                         {/* eslint-disable-next-line */}
                         <div
                             style={{
@@ -197,7 +197,7 @@ class Parlezvous extends Component {
                                     style={{ cursor: 'pointer' }}
                                     className="max-width btn button-light-blue"
                                     type="button"
-                                    value={ isLoading ? 'Loading...' : 'Valider' }
+                                    value={isLoading ? 'Loading...' : 'Valider'}
                                     onClick={this.onSubmit.bind(this)}
                                 />
                             </li>
