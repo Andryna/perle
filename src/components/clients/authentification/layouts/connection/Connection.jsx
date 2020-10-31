@@ -23,6 +23,8 @@ import {
     Https
 } from '@material-ui/icons'
 
+import { CircleLoader as Loader } from 'react-spinners'
+
 import Facebook from './statics/images/Facebook.png'
 import Google from './statics/images/Google.png'
 
@@ -44,7 +46,9 @@ class Connexion extends Component {
             error: false,
             isLoading: false,
             isShow: false,
-            isOblige: false
+            isOblige: false,
+            isLoadingG: false,
+            isLoadingF: false
         }
     }
 
@@ -75,14 +79,20 @@ class Connexion extends Component {
             console.log(facebookId, name, facebookId && name)
             axios.post('/api/register/facebook', datas)
                 .then(({ data }) => {
+                    this.setState({ isLoadingG: false })
                     console.log({ data })
                     this.redirect(data.token) && this.setState({ error: true })
                 })
-                .catch(error => console.log({ error }))
+                .catch(error => {
+                    this.setState({ isLoadingG: false })
+                    console.log({ error })
+                })
         }
     }
 
-    onClickGoogleBtn ({ googleId, profileObj: { name, email } }) {
+    onClickGoogleBtn (value) {
+        console.log('arrive ici', value)
+        const { googleId, profileObj: { name, email } } = value
         const mondes = parseInt(this.props.history.location.search.split('=')[1])
         const datas = {
             googleId,
@@ -93,9 +103,13 @@ class Connexion extends Component {
         axios.post('/api/register/google', datas)
             .then(async ({ data }) => {
                 console.log(data)
+                this.setState({ isLoadingG: false })
                 this.redirect(data.token) && this.setState({ error: true })
             })
-            .catch(error => console.log({ error }))
+            .catch(error => {
+                this.setState({ isLoadingG: false })
+                console.log({ error })
+            })
     }
 
     onSubmit (e) {
@@ -139,7 +153,9 @@ class Connexion extends Component {
             email,
             password,
             isShow,
-            isOblige
+            isOblige,
+            isLoadingF,
+            isLoadingG
         } = this.state
         return (
             <div className='Connection'>
@@ -156,44 +172,68 @@ class Connexion extends Component {
                             className="inline"
                             style={{
                                 display: 'flex',
-                                justifyContent: 'space-between'
+                                justifyContent: 'space-between',
+                                flex: 1
                             }}
                         >
-                            <FacebookLogin
-                                render={e => (
-                                    <Button
-                                        variant="contained"
-                                        color="primary"
-                                        size="small"
-                                        onClick={e.onClick}
-                                        style={{ borderRadius: 30 }}
-                                        startIcon={<img src={Facebook} alt='facebook' style={{ width: 20, height: 20 }} />}
-                                    >
-                                      Facebook
-                                    </Button>
-                                )}
-                                autoLoad={false}
-                                callback={this.onClickFaceboookBtn.bind(this)}
-                                appId="385906195896536"
-                            />
-                            <GoogleLogin
-                                render={e => (
-                                    <Button
-                                        variant="contained"
-                                        color="secondary"
-                                        size="small"
-                                        style={{ borderRadius: 30 }}
-                                        onClick={e.onClick}
-                                        startIcon={ <img src={Google} alt='google' style={{ width: 20, height: 20 }}/> }
-                                    >
-                                      Google
-                                    </Button>
-                                )}
-                                onSuccess={() => this.onClickGoogleBtn.bind(this)}
-                                onFailure={this.onClickGoogleBtn.bind(this)}
-                                cookiePolicy={'single_host_origin'}
-                                clientId="771939562585-noigod9r3l0ddqmh822uki4kmefqvarl.apps.googleusercontent.com"
-                            />
+                            <div style={{ flex: 1, marginRight: 3 }} onClick={() => this.setState({ isLoadingF: true }) }>
+                                <FacebookLogin
+                                    render={e => (
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                            size="small"
+                                            onClick={e.onClick}
+                                            style={{ borderRadius: 30 }}
+                                            startIcon={<img src={Facebook} alt='facebook' style={{ width: 20, height: 20 }} />}
+                                            fullWidth
+                                        >
+                                            {
+                                                isLoadingF
+                                                    ? <Loader
+                                                        size={22}
+                                                        color='#fff'
+                                                        loading={true}
+                                                    />
+                                                    : 'Facebook'
+                                            }
+                                        </Button>
+                                    )}
+                                    autoLoad={false}
+                                    callback={this.onClickFaceboookBtn.bind(this)}
+                                    appId="385906195896536"
+                                />
+                            </div>
+
+                            <div style={{ flex: 1, marginLeft: 3 }} onClick={() => this.setState({ isLoadingG: true }) }>
+                                <GoogleLogin
+                                    render={e => (
+                                        <Button
+                                            variant="contained"
+                                            color="secondary"
+                                            size="small"
+                                            style={{ borderRadius: 30 }}
+                                            onClick={e.onClick}
+                                            startIcon={ <img src={Google} alt='google' style={{ width: 20, height: 20 }}/> }
+                                            fullWidth
+                                        >
+                                            {
+                                                isLoadingG
+                                                    ? <Loader
+                                                        size={22}
+                                                        color='#fff'
+                                                        loading={true}
+                                                    />
+                                                    : 'Google'
+                                            }
+                                        </Button>
+                                    )}
+                                    onSuccess={() => this.onClickGoogleBtn.bind(this)}
+                                    onFailure={this.onClickGoogleBtn.bind(this)}
+                                    cookiePolicy={'single_host_origin'}
+                                    clientId="771939562585-noigod9r3l0ddqmh822uki4kmefqvarl.apps.googleusercontent.com"
+                                />
+                            </div>
                         </div>
                     </ThemeProvider>
                     <h2 style={{ color: '#afb0b2', marginTop: 20 }}>- ou -</h2>
@@ -224,7 +264,7 @@ class Connexion extends Component {
                                     </Grid>
                                     <Grid item>
                                         <FormControl>
-                                            <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                                            <InputLabel htmlFor="outlined-adornment-password">Mot de passe</InputLabel>
                                             <Input
                                                 type={isShow ? 'text' : 'password'}
                                                 value={password}
@@ -266,7 +306,7 @@ class Connexion extends Component {
                                     style={{ cursor: 'pointer' }}
                                     className="max-width btn button-light-blue"
                                     type="button"
-                                    value={isLoading ? 'Loading...' : 'Connexion'}
+                                    value={isLoading ? 'Chargement...' : 'Connexion'}
                                     onClick={this.onSubmit.bind(this)}
                                 />
                             </li>

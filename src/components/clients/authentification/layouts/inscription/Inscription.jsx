@@ -5,7 +5,11 @@ import {
     TextField,
     Button,
     IconButton,
-    Grid
+    Grid,
+    InputLabel,
+    InputAdornment,
+    FormControl,
+    Input
 } from '@material-ui/core'
 import {
     createMuiTheme,
@@ -19,6 +23,8 @@ import GoogleLogin from 'react-google-login'
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 
 import {
+    Visibility,
+    VisibilityOff,
     ArrowBack,
     Person,
     Email,
@@ -33,6 +39,7 @@ const theme = createMuiTheme({
     }
 })
 
+
 class Inscription extends Component {
     constructor (props) {
         super(props)
@@ -40,7 +47,9 @@ class Inscription extends Component {
             error: false,
             isLoading: false,
             isNotCopy: false,
-            isReq: false
+            isReq: false,
+            isShowP: false,
+            isShowC: false,
         }
     }
 
@@ -158,7 +167,9 @@ class Inscription extends Component {
             error,
             isLoading,
             isNotCopy,
-            isReq
+            isReq,
+            isShowP,
+            isShowC
         } = this.state
         return (
             <div className='Inscription'>
@@ -284,15 +295,30 @@ class Inscription extends Component {
                                         <Https />
                                     </Grid>
                                     <Grid item>
-                                        <TextField
-                                            label="Mot de passe *"
-                                            type="password"
-                                            value={password}
-                                            error={error}
-                                            onChange={this.onChangeInput.bind(this)}
-                                            name='password'
-                                            style={{ width: 215 }}
-                                        />
+                                        <FormControl>
+                                            <InputLabel htmlFor="outlined-adornment-password">Mot de passe *</InputLabel>
+                                            <Input
+                                                type={isShowP ? 'text' : 'password'}
+                                                value={password}
+                                                onChange={this.onChangeInput.bind(this)}
+                                                name='password'
+                                                style={{ width: 215 }}
+                                                error={error}
+                                                endAdornment={
+                                                    <InputAdornment position="end">
+                                                        <IconButton
+                                                            aria-label="toggle password visibility"
+                                                            onClick={() => this.setState({ isShowP: !isShowP })}
+                                                            onMouseDown={() => this.setState({ isShowP: !isShowP })}
+                                                            edge="end"
+                                                        >
+                                                            {isShowP ? <Visibility /> : <VisibilityOff />}
+                                                        </IconButton>
+                                                    </InputAdornment>
+                                                }
+                                                labelWidth={70}
+                                            />
+                                        </FormControl>
                                     </Grid>
                                 </Grid>
                             </li>
@@ -302,15 +328,30 @@ class Inscription extends Component {
                                         <Https />
                                     </Grid>
                                     <Grid item>
-                                        <TextField
-                                            label="Confirmation *"
-                                            value={vpassword}
-                                            type="password"
-                                            error={error}
-                                            onChange={this.onChangeInput.bind(this)}
-                                            style={{ width: 215 }}
-                                            name='vpassword'
-                                        />
+                                        <FormControl>
+                                            <InputLabel htmlFor="outlined-adornment-password">Confirmation *</InputLabel>
+                                            <Input
+                                                type={isShowC ? 'text' : 'password'}
+                                                value={vpassword}
+                                                onChange={this.onChangeInput.bind(this)}
+                                                name='vpassword'
+                                                style={{ width: 215 }}
+                                                error={error}
+                                                endAdornment={
+                                                    <InputAdornment position="end">
+                                                        <IconButton
+                                                            aria-label="toggle password visibility"
+                                                            onClick={() => this.setState({ isShowC: !isShowC })}
+                                                            onMouseDown={() => this.setState({ isShowC: !isShowC })}
+                                                            edge="end"
+                                                        >
+                                                            {isShowC ? <Visibility /> : <VisibilityOff />}
+                                                        </IconButton>
+                                                    </InputAdornment>
+                                                }
+                                                labelWidth={70}
+                                            />
+                                        </FormControl>
                                     </Grid>
                                 </Grid>
                             </li>
