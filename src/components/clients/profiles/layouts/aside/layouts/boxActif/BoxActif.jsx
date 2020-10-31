@@ -35,28 +35,31 @@ const StyledBadge = withStyles((theme) => ({
 }))(Badge)
 
 const datas = [
-    { id: 0, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
-    { id: 1, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
+    { id: 0, url: 'https://www.village-justice.com/articles/local/cache-gd2/61/b91c0bc706676d96e362711536df5b.jpg?1603207633' },
+    { id: 1, url: 'https://www.village-justice.com/articles/local/cache-gd2/61/b91c0bc706676d96e362711536df5b.jpg?1603207633' },
     { id: 2, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
-    { id: 3, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
-    { id: 4, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
-    { id: 5, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
-    { id: 6, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
-    { id: 7, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
+    { id: 3, url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS9e3tHfGvC1Z9xPpa_bU8ynCuWg_rn-C1YBQ&usqp=CAU' },
+    { id: 4, url: 'https://images-na.ssl-images-amazon.com/images/I/81lKUxkmF5L._SY600_.jpg' },
+    { id: 5, url: 'https://www.fourchette-et-bikini.fr/sites/default/files/styles/full_670x350/public/femme_amoureuse.jpg?itok=ovXsCBSe' },
+
+    { id: 6, url: 'https://www.village-justice.com/articles/local/cache-gd2/61/b91c0bc706676d96e362711536df5b.jpg?1603207633' },
     { id: 8, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
-    { id: 9, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
-    { id: 10, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
-    { id: 11, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
+    { id: 8, url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS9e3tHfGvC1Z9xPpa_bU8ynCuWg_rn-C1YBQ&usqp=CAU' },
+    { id: 9, url: 'https://images-na.ssl-images-amazon.com/images/I/81lKUxkmF5L._SY600_.jpg' },
+    { id: 10, url: 'https://www.fourchette-et-bikini.fr/sites/default/files/styles/full_670x350/public/femme_amoureuse.jpg?itok=ovXsCBSe' },
+
+    { id: 11, url: 'https://www.village-justice.com/articles/local/cache-gd2/61/b91c0bc706676d96e362711536df5b.jpg?1603207633' },
     { id: 12, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
-    { id: 13, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
-    { id: 14, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
-    { id: 15, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
-    { id: 16, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
+    { id: 13, url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS9e3tHfGvC1Z9xPpa_bU8ynCuWg_rn-C1YBQ&usqp=CAU' },
+    { id: 14, url: 'https://images-na.ssl-images-amazon.com/images/I/81lKUxkmF5L._SY600_.jpg' },
+    { id: 15, url: 'https://www.fourchette-et-bikini.fr/sites/default/files/styles/full_670x350/public/femme_amoureuse.jpg?itok=ovXsCBSe' },
+
+    { id: 16, url: 'https://www.village-justice.com/articles/local/cache-gd2/61/b91c0bc706676d96e362711536df5b.jpg?1603207633' },
     { id: 17, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
-    { id: 18, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
-    { id: 19, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
-    { id: 20, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' },
-    { id: 21, url: 'https://wl-sympa.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg' }
+    { id: 18, url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS9e3tHfGvC1Z9xPpa_bU8ynCuWg_rn-C1YBQ&usqp=CAU' },
+    { id: 19, url: 'https://images-na.ssl-images-amazon.com/images/I/81lKUxkmF5L._SY600_.jpg' },
+    { id: 20, url: 'https://www.fourchette-et-bikini.fr/sites/default/files/styles/full_670x350/public/femme_amoureuse.jpg?itok=ovXsCBSe' },
+    { id: 21, url: 'https://www.village-justice.com/articles/local/cache-gd2/61/b91c0bc706676d96e362711536df5b.jpg?1603207633' }
 ]
 
 function BadgeAvatars ({ size, url, id }) {
@@ -138,23 +141,23 @@ function BoxActif (props) {
                         display: 'flex',
                         alignItems: 'center',
                         transform: 'translateX(' + left + 'px)',
-                        height: 72,
-                        border: '1px solid #ffffff00'
+                        height: 72
                     }}
                     className='vitesseTranslate'
                 >
                     {
                         datas.map(({ id, url }) => {
+                            const center = 3
                             let size = 0.65
-                            if ((first + 1) === id || (first + 5) === id) {
+                            if ((first + (center - 2)) === id || (first + (center + 2)) === id) {
                                 size = 0.7
                             }
 
-                            if ((first + 2) === id || (first + 4) === id) {
+                            if ((first + (center - 1)) === id || (first + (center + 1)) === id) {
                                 size = 0.85
                             }
 
-                            if ((first + 3) === id) {
+                            if ((first + center) === id) {
                                 size = 1
                             }
 
