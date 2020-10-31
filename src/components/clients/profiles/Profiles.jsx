@@ -1,29 +1,26 @@
 import React, { Component } from 'react'
 import './statics/styles/Profiles.scss'
 import TopHeader from './layouts/topHeader/TopHeader'
-import Header from './layouts/header/Header'
 import BoxProfile from './layouts/boxProfile/BoxProfile'
-import Aside from './layouts/aside/Aside'
 import UserProfile from './layouts/userprofile/UserProfile'
 import axios from 'axios'
-import jwtdecode from 'jwt-decode'
 import BoxActif from './layouts/aside/layouts/boxActif/BoxActif'
-import Slider from 'react-slick'
 import MenuIcon from '@material-ui/icons/Menu'
-import HomeIcon from '@material-ui/icons/Home'
-import VisibilityIcon from '@material-ui/icons/Visibility'
 import ForumRoundedIcon from '@material-ui/icons/ForumRounded'
-import NotificationsRoundedIcon from '@material-ui/icons/NotificationsRounded'
 import photoDeProfile from './statics/images/photoDeProfile.png'
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
-import { Divider } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
 
-import Fab from '@material-ui/core/Fab'
-import EditIcon from '@material-ui/icons/Edit'
-import FavoriteIcon from '@material-ui/icons/Favorite'
-import NavigationIcon from '@material-ui/icons/Navigation'
+import {
+    Mic,
+    Search,
+    Notifications,
+    Mail,
+    Visibility,
+    Sync,
+    Language
+} from '@material-ui/icons'
 
 class Profiles extends Component {
     constructor (props) {
@@ -71,7 +68,7 @@ class Profiles extends Component {
     }
 
     OnChange (e) {
-        e.prevenDefault()
+        e.preventDefault()
         this.setState({ [e.target.name]: e.target.value })
     }
 
@@ -179,7 +176,10 @@ class Profiles extends Component {
 
                         <div className="main">
                             <div className="findBox">
-                                <form className="findForm">
+                                <div className="findForm">
+                                    <div className='Search'>
+                                        <Search style={{ color: '#ffffff' }}/>
+                                    </div>
                                     <input
                                         value={search}
                                         type="text"
@@ -187,7 +187,10 @@ class Profiles extends Component {
                                         name='search'
                                         onChange={this.OnChange.bind(this)}
                                     />
-                                </form>
+                                    <div className='Mic'>
+                                        <Mic style={{ color: '#056f98' }}/>
+                                    </div>
+                                </div>
                             </div>
                             {/* eslint-disable-next-line */}
                             <div className="more" onClick={() => this.quicksearch()}>
@@ -333,21 +336,40 @@ class Profiles extends Component {
                         <img src={photoDeProfile} alt='profil' className="openprofile" onClick={this.openProfil} />
                     </div>
                     <div className="iconbutton">
-                        <Fab color="secondary" aria-label="edit">
-                            <HomeIcon onClick={this.handleClick} />
-                        </Fab>
-                        <Fab color="secondary" aria-label="edit">
+                        <div className='line'></div>
+                        <div>
+                            <ForumRoundedIcon onClick={this.handleClick} />
+                            <p>Chat</p>
+                        </div>
+                        <div>
+                            <Mail />
+                            <p>Messages</p>
+                        </div>
+                        <div>
+                            <Visibility />
+                            <p>Visites</p>
+                        </div>
+                        <div>
+                            <Sync />
+                            <p>Actualites</p>
+                        </div>
+                        <div>
+                            <Search />
+                            <p>Recherche</p>
+                        </div>
+                        <div>
+                            <Notifications onClick={this.handleClick} />
+                            <p>Notification</p>
+                        </div>
+                        <div>
                             <MenuIcon />
-                        </Fab>
-                        <Fab disabled aria-label="like">
-                            <ForumRoundedIcon />
-                        </Fab>
-                        <Fab color="primary" aria-label="add">
-                            <NotificationsRoundedIcon />
-                        </Fab>
-                        <Fab color="primary" aria-label="add">
-                            <AddIcon />
-                        </Fab>
+                            <p>Menu</p>
+                        </div>
+                        <div className='line'></div>
+                        <div>
+                            <Language />
+                            <p className='chiffre'>578</p>
+                        </div>
                     </div>
                 </div>
 
