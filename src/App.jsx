@@ -11,6 +11,7 @@ import Principal from './components/clients/principal/Principal'
 // import List from './components/clients/details/layouts/list/List'
 import Profiles from './components/clients/profiles/Profiles.jsx'
 import Authentification from './components/clients/authentification/Authentification'
+import Chat from './components/clients/chat/Chat'
 
 axios.defaults.baseURL = 'https://www.perlerencontre.fr'
 
@@ -44,6 +45,7 @@ function App (props) {
                         <Route exact path="/" component={Principal}/>
                         <Route exact path="/Authentification=:type" component={Authentification}/>
                         <Route exact path="/Profiles" component={Profiles}/>
+                        <Route exact path="/Chat" component={Chat}/>
                         <Route component={error404} />
                     </Switch>
                 </div>

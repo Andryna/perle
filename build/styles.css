@@ -13,7 +13,9 @@ input {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+
 }
+
 
 .error {
     color: #ef6b6b !important;
@@ -545,25 +547,25 @@ header {
     /* background-color:white; */
 }
 
-.findForm {
-    position:relative;
-    top: -250px;
-    width: fit-content;
-    margin: auto;
-}
-
-.findForm input:active, .findForm input:focus,
-.findForm input {
-    display: block;
-    width: 250px;
-    height: 35px;
-    margin: auto;
-    /* text-decoration-color: #323232; */
-    background: url('./assets/images/icones/search.png') 0% center no-repeat, rgba(245, 245, 245, 0.801);
-    border: 2px solid rgba(0,0,0,0.5);
-    border-radius: 50px;
-    padding: 0px 20px;
-}
+/* .findForm { */
+/*     position:relative; */
+/*     top: -250px; */
+/*     width: fit-content; */
+/*     margin: auto; */
+/* } */
+/*  */
+/* .findForm input:active, .findForm input:focus, */
+/* .findForm input { */
+/*     display: block; */
+/*     width: 250px; */
+/*     height: 35px; */
+/*     margin: auto; */
+/*     /* text-decoration-color: #323232; */ */
+/*     background: url('./assets/images/icones/search.png') 0% center no-repeat, rgba(245, 245, 245, 0.801); */
+/*     border: 2px solid rgba(0,0,0,0.5); */
+/*     border-radius: 50px; */
+/*     padding: 0px 20px; */
+/* } */
 
 
 /* main content */

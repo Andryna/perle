@@ -109,6 +109,9 @@ class Profiles extends Component {
         //     slidesToShow: 3,
         //     speed: 500
         // }
+        const {
+            history 
+        } = this.props
         return (
             <div>
                 {!teststate ? (<div className='Profiles'>
@@ -337,7 +340,7 @@ class Profiles extends Component {
                     </div>
                     <div className="iconbutton">
                         <div className='line'></div>
-                        <div>
+                        <div onClick={() => history.push('Chat')}>
                             <ForumRoundedIcon onClick={this.handleClick} />
                             <p>Chat</p>
                         </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import './statics/styles/profdet.scss'
 import Badge from '@material-ui/core/Badge'
 import Avatar from '@material-ui/core/Avatar'
-import { makeStyles, withStyles } from '@material-ui/core/styles'
+import { withStyles } from '@material-ui/core/styles'
 import { ArrowRight, ArrowLeft } from '@material-ui/icons'
 
 const StyledBadge = withStyles((theme) => ({
@@ -146,18 +146,18 @@ function BoxActif (props) {
                     className='vitesseTranslate'
                 >
                     {
-                        datas.map(({ id, url }) => {
+                        datas.map(({ id, url }, i) => {
                             const center = 3
                             let size = 0.65
-                            if ((first + (center - 2)) === id || (first + (center + 2)) === id) {
+                            if ((first + (center - 2)) === i || (first + (center + 2)) === i) {
                                 size = 0.7
                             }
 
-                            if ((first + (center - 1)) === id || (first + (center + 1)) === id) {
+                            if ((first + (center - 1)) === i || (first + (center + 1)) === i) {
                                 size = 0.85
                             }
 
-                            if ((first + center) === id) {
+                            if ((first + center) === i) {
                                 size = 1
                             }
 

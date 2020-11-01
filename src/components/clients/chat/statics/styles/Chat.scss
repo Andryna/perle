@@ -1,0 +1,32 @@
+.Chat {
+    .container {
+        margin: auto;
+        width: 600px;
+        background-color: #303030;
+    }
+    .HeaderType {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .lineH {
+            background-color: #646467;
+            width: 150px;
+            height: 1px;
+        }
+        .center {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            h1 {
+                font-size: 20px;
+                color: #d2d2d2;
+            }
+            time {
+                color: #585859;
+                font-size: 15px;
+            }
+        }
+    }
+
+}
