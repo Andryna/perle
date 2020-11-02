@@ -14,21 +14,20 @@
     }
     input {
         width: 90%;
-        height: 30px;
+        height: 37px;
         border-radius: 30px;
-        // margin: 0 10px;
         border: none;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         color: black;
         margin: auto;
-        // padding-left: 15px;
+        padding-left: 18px;
     }
     .vitessWid {
         transition: width 2s;
     }
     .fab {
         cursor: pointer;
-        width: 34px;
+        width: 30px;
         height: 30px;
         background-color: white;
         border-radius: 100%;

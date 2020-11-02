@@ -11,6 +11,10 @@ import {
     EmojiEmotions
 } from '@material-ui/icons'
 
+import {
+    Fab
+} from '@material-ui/core'
+
 function ChatInput () {
     const [value, setValue] = React.useState('')
     const [showIcon, setShowIcon] = React.useState(false)
@@ -23,7 +27,7 @@ function ChatInput () {
         <div className='ChatInput'>
             <div
                 className='navigate-next vitessWid'
-                style={{ width: showIcon ? 320 : 30 }}
+                style={{ width: showIcon ? 220 : 30 }}
             >
                 <NavigateNext
                     className='vitesseAnimation'
@@ -48,7 +52,8 @@ function ChatInput () {
             <div
                 style={{
                     position: 'relative',
-                    width: '90%',
+                    // width: '90%',
+                    flex: 1,
                     display: 'flex',
                     alignItems: 'center'
                 }}>
@@ -62,20 +67,21 @@ function ChatInput () {
                         color: '#202020',
                         fontSize: 30,
                         position: 'absolute',
-                        top: 0,
-                        right: '5%',
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        right: '4%',
                         zIndex: 10
                     }}
                 />
             </div>
-            <div
-                className='fab'
-                // style={{ width: showIcon ? 52 : 32, transition: 'none' }}
-            >
+            <Fab aria-label="send" style={{ width: 35, height: 20 }}>
                 <Send
-                    style={{ fontSize: 15 }}
+                    style={{
+                        fontSize: 15,
+                        transform: 'rotate(-40deg) translate(1px, 0px)'
+                    }}
                 />
-            </div>
+            </Fab>
         </div>
     )
 }

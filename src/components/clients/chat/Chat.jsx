@@ -4,6 +4,7 @@ import Header from './layouts/header/Header'
 import './statics/styles/Chat.scss'
 import Moment from 'react-moment'
 import ChatInput from './layouts/chatInput/ChatInput'
+import Notification from './layouts/notifications/Notification'
 
 const datas = [
     { id: 1, notification: 0, url: 'https://www.village-justice.com/articles/local/cache-gd2/61/b91c0bc706676d96e362711536df5b.jpg?1603207633' },
@@ -28,9 +29,26 @@ function HeaderType ({ title, date }) {
 }
 
 class Chat extends Component {
+    constructor (props) {
+        super(props)
+        this.state = {
+            showNotification: false
+        }
+    }
+
+    toogleShowNotification () {
+        this.setState({ showNotification: !this.state.showNotification })
+    }
+
     render () {
+        const {
+            showNotification
+        } = this.state
         return (
             <div className='Chat'>
+                {
+                    showNotification && <Notification toogleShowNotification={this.toogleShowNotification.bind(this)}/>
+                }
                 <div className='container'>
                     <Header/>
                     <HeaderType title='LA RENCONTRE' date={new Date()}/>

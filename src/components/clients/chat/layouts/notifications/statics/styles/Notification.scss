@@ -1,0 +1,35 @@
+$width: 500px;
+$height: 300px;
+
+.Notification {
+    background-image: url('../images/123338210_288818612245487_2854147721090911069_n.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    position: fixed;
+    width: $width;
+    height: $height;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    margin-top: 50vh;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    svg {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        color: white;
+        cursor: pointer;
+    }
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: $width;
+        height: $height;
+    }
+}

@@ -74,14 +74,14 @@ function Header () {
     const dimIndex = async (e) => {
         for (let i = 0; i < e; i++) {
             setCenter(a => a + 1)
-            await delay(1000)
+            await delay(500)
         }
     }
 
     const augIndex = async (e) => {
         for (let i = 0; i < e; i++) {
             setCenter(a => a - 1)
-            await delay(1000)
+            await delay(500)
         }
     }
 
@@ -98,21 +98,21 @@ function Header () {
                     className='body vitesseTranslate'
                 >
                     {
-                        datas && datas.map(({ notification, url }, i) => {
+                        datas && datas.map(({ notification, url, id }, i) => {
                         /* eslint-disable */
                         if (i < center) {
-                            return (<div className='bl' onClick={() => augIndex(center - i)} >
+                            return (<div key={id} className='bl' onClick={() => augIndex(center - i)} >
                                 <BadgeAvatars user={false} url={url} notification={notification} />
                             </div>)
                         }
                         if (i === center) {
-                            return (<div className='bl veronique' >
+                            return (<div key={id} className='bl veronique' >
                                 <BadgeAvatars user={true} url={url} notification={notification} />
                             </div>)
                         }
                         if (i > center) {
                             return (
-                                <div className='bl' onClick={() => dimIndex(i - center)} >
+                                <div key={id} className='bl' onClick={() => dimIndex(i - center)} >
                                     <BadgeAvatars user={false} url={url} notification={notification} />
                                 </div>
                             )
